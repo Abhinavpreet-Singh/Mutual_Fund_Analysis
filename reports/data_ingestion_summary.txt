@@ -1,0 +1,251 @@
+BLUESTOCK FINTECH — DATA INGESTION REPORT
+Day 1 | Task 3 — All 10 CSV Datasets
+Generated : 2026-06-03 00:50:04
+
+======================================================================
+  DATASET : 01_fund_master
+======================================================================
+  Shape   : 40 rows × 15 columns
+
+  Column Data Types:
+    amfi_code                           int64            nulls: 0.0%
+    fund_house                          object           nulls: 0.0%
+    scheme_name                         object           nulls: 0.0%
+    category                            object           nulls: 0.0%
+    sub_category                        object           nulls: 0.0%
+    plan                                object           nulls: 0.0%
+    launch_date                         datetime64[ns]   nulls: 0.0%
+    benchmark                           object           nulls: 0.0%
+    expense_ratio_pct                   float64          nulls: 0.0%
+    exit_load_pct                       float64          nulls: 0.0%
+    min_sip_amount                      int64            nulls: 0.0%
+    min_lumpsum_amount                  int64            nulls: 0.0%
+    fund_manager                        object           nulls: 0.0%
+    risk_category                       object           nulls: 0.0%
+    sebi_category_code                  object           nulls: 0.0%
+
+  First 5 Rows:
+ amfi_code      fund_house                                  scheme_name category sub_category    plan launch_date                 benchmark  expense_ratio_pct  exit_load_pct  min_sip_amount  min_lumpsum_amount  fund_manager risk_category sebi_category_code
+    119551 SBI Mutual Fund    SBI Bluechip Fund - Regular Plan - Growth   Equity    Large Cap Regular  2006-02-14             NIFTY 100 TRI               1.54            1.0             500                1000 Sohini Andani      Moderate               EC01
+    119552 SBI Mutual Fund     SBI Bluechip Fund - Direct Plan - Growth   Equity    Large Cap  Direct  2013-01-01             NIFTY 100 TRI               0.66            1.0             500                1000 Sohini Andani      Moderate               EC01
+    119598 SBI Mutual Fund   SBI Small Cap Fund - Regular Plan - Growth   Equity    Small Cap Regular  2009-09-09      BSE 250 SmallCap TRI               1.43            1.0             500                1000 R. Srinivasan     Very High               EC03
+    119599 SBI Mutual Fund    SBI Small Cap Fund - Direct Plan - Growth   Equity    Small Cap  Direct  2013-01-01      BSE 250 SmallCap TRI               0.72            1.0             500                1000 R. Srinivasan     Very High               EC03
+    119120 SBI Mutual Fund SBI Magnum Gilt Fund - Regular Plan - Growth     Debt         Gilt Regular  2000-12-30 CRISIL Dynamic Gilt Index               0.77            0.0             500                1000  Dinesh Ahuja           Low               DC02
+
+======================================================================
+  DATASET : 02_nav_history
+======================================================================
+  Shape   : 46,000 rows × 3 columns
+
+  Column Data Types:
+    amfi_code                           int64            nulls: 0.0%
+    date                                datetime64[ns]   nulls: 0.0%
+    nav                                 float64          nulls: 0.0%
+
+  First 5 Rows:
+ amfi_code       date     nav
+    119551 2022-01-03 54.3856
+    119551 2022-01-04 54.3474
+    119551 2022-01-05 54.6869
+    119551 2022-01-06 55.4550
+    119551 2022-01-07 55.3692
+
+======================================================================
+  DATASET : 03_aum_by_fund_house
+======================================================================
+  Shape   : 90 rows × 5 columns
+
+  Column Data Types:
+    date                                datetime64[ns]   nulls: 0.0%
+    fund_house                          object           nulls: 0.0%
+    aum_lakh_crore                      float64          nulls: 0.0%
+    aum_crore                           int64            nulls: 0.0%
+    num_schemes                         int64            nulls: 0.0%
+
+  First 5 Rows:
+      date          fund_house  aum_lakh_crore  aum_crore  num_schemes
+2022-03-31     SBI Mutual Fund            6.05     605000          186
+2022-03-31 ICICI Prudential MF            4.65     465000          216
+2022-03-31    HDFC Mutual Fund            4.35     435000          195
+2022-03-31     Nippon India MF            2.70     270000          177
+2022-03-31   Kotak Mahindra MF            2.70     270000          168
+
+======================================================================
+  DATASET : 04_monthly_sip_inflows
+======================================================================
+  Shape   : 48 rows × 6 columns
+
+  Column Data Types:
+    month                               datetime64[ns]   nulls: 0.0%
+    sip_inflow_crore                    int64            nulls: 0.0%
+    active_sip_accounts_crore           float64          nulls: 0.0%
+    new_sip_accounts_lakh               float64          nulls: 0.0%
+    sip_aum_lakh_crore                  float64          nulls: 0.0%
+    yoy_growth_pct                      float64          nulls: 25.0%
+
+  First 5 Rows:
+     month  sip_inflow_crore  active_sip_accounts_crore  new_sip_accounts_lakh  sip_aum_lakh_crore  yoy_growth_pct
+2022-01-01             11517                       4.91                   9.10                4.80             NaN
+2022-02-01             11438                       4.93                   8.20                4.85             NaN
+2022-03-01             12328                       5.09                  10.50                5.01             NaN
+2022-04-01             11863                       5.48                   9.52                5.12             NaN
+2022-05-01             12286                       5.55                   8.10                5.15             NaN
+
+======================================================================
+  DATASET : 05_category_inflows
+======================================================================
+  Shape   : 144 rows × 3 columns
+
+  Column Data Types:
+    month                               datetime64[ns]   nulls: 0.0%
+    category                            object           nulls: 0.0%
+    net_inflow_crore                    float64          nulls: 0.0%
+
+  First 5 Rows:
+     month        category  net_inflow_crore
+2024-04-01       Large Cap            2413.0
+2024-04-01         Mid Cap            3897.0
+2024-04-01       Small Cap            3533.0
+2024-04-01       Flexi Cap            4947.0
+2024-04-01 Large & Mid Cap            4214.0
+
+======================================================================
+  DATASET : 06_industry_folio_count
+======================================================================
+  Shape   : 21 rows × 6 columns
+
+  Column Data Types:
+    month                               datetime64[ns]   nulls: 0.0%
+    total_folios_crore                  float64          nulls: 0.0%
+    equity_folios_crore                 float64          nulls: 0.0%
+    debt_folios_crore                   float64          nulls: 0.0%
+    hybrid_folios_crore                 float64          nulls: 0.0%
+    others_folios_crore                 float64          nulls: 0.0%
+
+  First 5 Rows:
+     month  total_folios_crore  equity_folios_crore  debt_folios_crore  hybrid_folios_crore  others_folios_crore
+2022-01-01               13.26                 9.28               1.86                 0.80                 1.33
+2022-04-01               13.91                 9.74               1.95                 0.83                 1.39
+2022-07-01               13.85                 9.69               1.94                 0.83                 1.38
+2022-10-01               14.12                 9.88               1.98                 0.85                 1.41
+2023-01-01               14.81                10.37               2.07                 0.89                 1.48
+
+======================================================================
+  DATASET : 07_scheme_performance
+======================================================================
+  Shape   : 40 rows × 19 columns
+
+  Column Data Types:
+    amfi_code                           int64            nulls: 0.0%
+    scheme_name                         object           nulls: 0.0%
+    fund_house                          object           nulls: 0.0%
+    category                            object           nulls: 0.0%
+    plan                                object           nulls: 0.0%
+    return_1yr_pct                      float64          nulls: 0.0%
+    return_3yr_pct                      float64          nulls: 0.0%
+    return_5yr_pct                      float64          nulls: 0.0%
+    benchmark_3yr_pct                   float64          nulls: 0.0%
+    alpha                               float64          nulls: 0.0%
+    beta                                float64          nulls: 0.0%
+    sharpe_ratio                        float64          nulls: 0.0%
+    sortino_ratio                       float64          nulls: 0.0%
+    std_dev_ann_pct                     float64          nulls: 0.0%
+    max_drawdown_pct                    float64          nulls: 0.0%
+    aum_crore                           int64            nulls: 0.0%
+    expense_ratio_pct                   float64          nulls: 0.0%
+    morningstar_rating                  int64            nulls: 0.0%
+    risk_grade                          object           nulls: 0.0%
+
+  First 5 Rows:
+ amfi_code                                  scheme_name      fund_house  category    plan  return_1yr_pct  return_3yr_pct  return_5yr_pct  benchmark_3yr_pct  alpha  beta  sharpe_ratio  sortino_ratio  std_dev_ann_pct  max_drawdown_pct  aum_crore  expense_ratio_pct  morningstar_rating risk_grade
+    119551    SBI Bluechip Fund - Regular Plan - Growth SBI Mutual Fund Large Cap Regular           12.42           12.36           14.45              11.49   0.87  0.89          0.88           1.29             14.0            -21.70      14288               1.54                   4   Moderate
+    119552     SBI Bluechip Fund - Direct Plan - Growth SBI Mutual Fund Large Cap  Direct           15.25           11.30           14.23               9.52   1.78  0.87          0.81           1.29             14.0            -24.43       1231               0.66                   3   Moderate
+    119598   SBI Small Cap Fund - Regular Plan - Growth SBI Mutual Fund Small Cap Regular           24.56           23.39           20.67              22.16   1.23  0.89          0.94           1.35             25.0            -13.35      19259               1.43                   5  Very High
+    119599    SBI Small Cap Fund - Direct Plan - Growth SBI Mutual Fund Small Cap  Direct           20.59           23.14           21.82              22.01   1.13  1.04          0.93           1.67             25.0            -24.78      36061               0.72                   4  Very High
+    119120 SBI Magnum Gilt Fund - Regular Plan - Growth SBI Mutual Fund      Gilt Regular            5.34            6.07            5.43               4.47   1.60  0.22          1.52           2.11              4.0             -2.30      24101               0.77                   5        Low
+
+======================================================================
+  DATASET : 08_investor_transactions
+======================================================================
+  Shape   : 32,778 rows × 13 columns
+
+  Column Data Types:
+    investor_id                         object           nulls: 0.0%
+    transaction_date                    datetime64[ns]   nulls: 0.0%
+    amfi_code                           int64            nulls: 0.0%
+    transaction_type                    object           nulls: 0.0%
+    amount_inr                          int64            nulls: 0.0%
+    state                               object           nulls: 0.0%
+    city                                object           nulls: 0.0%
+    city_tier                           object           nulls: 0.0%
+    age_group                           object           nulls: 0.0%
+    gender                              object           nulls: 0.0%
+    annual_income_lakh                  float64          nulls: 0.0%
+    payment_mode                        object           nulls: 0.0%
+    kyc_status                          object           nulls: 0.0%
+
+  First 5 Rows:
+investor_id transaction_date  amfi_code transaction_type  amount_inr       state      city city_tier age_group gender  annual_income_lakh payment_mode kyc_status
+  INV003054       2024-01-01     119092              SIP        1834   Telangana Hyderabad       T30       56+ Female                77.1          UPI   Verified
+  INV002952       2024-01-01     148567       Redemption      392882      Punjab  Amritsar       B30     18-25   Male                 7.1       Cheque   Verified
+  INV003420       2024-01-01     118636              SIP         912     Haryana Faridabad       B30     36-45   Male                47.2      Mandate   Verified
+  INV003436       2024-01-01     118634              SIP        1102 Maharashtra    Mumbai       T30     36-45 Female                54.4       Cheque    Pending
+  INV004691       2024-01-01     119094          Lumpsum        8682       Delhi     Noida       T30     26-35   Male                14.5  Net Banking    Pending
+
+======================================================================
+  DATASET : 09_portfolio_holdings
+======================================================================
+  Shape   : 322 rows × 8 columns
+
+  Column Data Types:
+    amfi_code                           int64            nulls: 0.0%
+    stock_symbol                        object           nulls: 0.0%
+    stock_name                          object           nulls: 0.0%
+    sector                              object           nulls: 0.0%
+    weight_pct                          float64          nulls: 0.0%
+    market_value_cr                     float64          nulls: 0.0%
+    current_price_inr                   float64          nulls: 0.0%
+    portfolio_date                      datetime64[ns]   nulls: 0.0%
+
+  First 5 Rows:
+ amfi_code stock_symbol               stock_name      sector  weight_pct  market_value_cr  current_price_inr portfolio_date
+    119551    POWERGRID   Power Grid Corporation   Utilities       13.85           737.09            6011.08     2025-12-31
+    119551     HDFCBANK            HDFC Bank Ltd     Banking       11.19            88.97            1074.65     2025-12-31
+    119551       GRASIM    Grasim Industries Ltd Diversified        9.90           208.45            5964.59     2025-12-31
+    119551      DRREDDY Dr. Reddy's Laboratories      Pharma        4.76           161.32            3748.82     2025-12-31
+    119551   ASIANPAINT         Asian Paints Ltd      Paints       10.25           725.90            1321.45     2025-12-31
+
+======================================================================
+  DATASET : 10_benchmark_indices
+======================================================================
+  Shape   : 8,050 rows × 3 columns
+
+  Column Data Types:
+    date                                datetime64[ns]   nulls: 0.0%
+    index_name                          object           nulls: 0.0%
+    close_value                         float64          nulls: 0.0%
+
+  First 5 Rows:
+      date index_name  close_value
+2022-01-03    NIFTY50     17492.79
+2022-01-04    NIFTY50     17689.64
+2022-01-05    NIFTY50     17835.05
+2022-01-06    NIFTY50     17878.51
+2022-01-07    NIFTY50     17759.15
+
+======================================================================
+  SUMMARY — ALL DATASETS
+======================================================================
+  Dataset                                   Rows   Cols
+  ----------------------------------- ---------- ------
+  01_fund_master                              40     15
+  02_nav_history                          46,000      3
+  03_aum_by_fund_house                        90      5
+  04_monthly_sip_inflows                      48      6
+  05_category_inflows                        144      3
+  06_industry_folio_count                     21      6
+  07_scheme_performance                       40     19
+  08_investor_transactions                32,778     13
+  09_portfolio_holdings                      322      8
+  10_benchmark_indices                     8,050      3
+  TOTAL                                   87,533

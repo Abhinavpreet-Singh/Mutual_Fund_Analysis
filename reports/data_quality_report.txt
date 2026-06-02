@@ -1,0 +1,96 @@
+======================================================================
+  BLUESTOCK FINTECH — DATA QUALITY REPORT
+  Day 1 | Task 7 — AMFI Code Validation
+  Generated : 2026-06-03 00:50:06
+======================================================================
+
+[1] DATASET OVERVIEW
+----------------------------------------------------------------------
+  fund_master  :     40 rows  |  40 unique AMFI codes
+  nav_history  : 46,000 rows  |  40 unique AMFI codes
+  NAV date range : 2022-01-03  →  2026-05-29
+
+[2] AMFI CODE MATCH SUMMARY
+----------------------------------------------------------------------
+  ✔  Codes in BOTH master & nav_history : 40
+  ✘  Codes in master  MISSING from nav  : 0
+  ⚠  Codes in nav  NOT in master        : 0
+
+  ✔  All fund_master AMFI codes are present in nav_history.
+
+[3] PER-SCHEME NAV COVERAGE
+----------------------------------------------------------------------
+ amfi_code                                           scheme_name               fund_house  nav_records earliest_date latest_date   min_nav   max_nav  null_nav
+    119551             SBI Bluechip Fund - Regular Plan - Growth          SBI Mutual Fund         1150    2022-01-03  2026-05-29   50.0295  151.4373         0
+    119552              SBI Bluechip Fund - Direct Plan - Growth          SBI Mutual Fund         1150    2022-01-03  2026-05-29   56.4224  139.4982         0
+    119598            SBI Small Cap Fund - Regular Plan - Growth          SBI Mutual Fund         1150    2022-01-03  2026-05-29   88.0925  322.0353         0
+    119599             SBI Small Cap Fund - Direct Plan - Growth          SBI Mutual Fund         1150    2022-01-03  2026-05-29   78.6152  165.7647         0
+    119120          SBI Magnum Gilt Fund - Regular Plan - Growth          SBI Mutual Fund         1150    2022-01-03  2026-05-29   41.7962   55.2211         0
+    100016             HDFC Top 100 Fund - Regular Plan - Growth         HDFC Mutual Fund         1150    2022-01-03  2026-05-29  411.1759  669.7236         0
+    125497              HDFC Top 100 Fund - Direct Plan - Growth         HDFC Mutual Fund         1150    2022-01-03  2026-05-29  529.6352 1286.0621         0
+    100033    HDFC Mid-Cap Opportunities Fund - Regular - Growth         HDFC Mutual Fund         1150    2022-01-03  2026-05-29   93.5553  367.6979         0
+    125498     HDFC Mid-Cap Opportunities Fund - Direct - Growth         HDFC Mutual Fund         1150    2022-01-03  2026-05-29   99.5501  193.5136         0
+    100025          HDFC Short Term Debt Fund - Regular - Growth         HDFC Mutual Fund         1150    2022-01-03  2026-05-29   26.1366   32.6726         0
+    120503            ICICI Pru Bluechip Fund - Regular - Growth      ICICI Prudential MF         1150    2022-01-03  2026-05-29   55.3983  118.8713         0
+    120504             ICICI Pru Bluechip Fund - Direct - Growth      ICICI Prudential MF         1150    2022-01-03  2026-05-29   59.4577  164.2321         0
+    120505              ICICI Pru Midcap Fund - Regular - Growth      ICICI Prudential MF         1150    2022-01-03  2026-05-29  133.1682  476.3696         0
+    120506     ICICI Pru Value Discovery Fund - Regular - Growth      ICICI Prudential MF         1150    2022-01-03  2026-05-29  202.0343  410.2909         0
+    120507              ICICI Pru Liquid Fund - Regular - Growth      ICICI Prudential MF         1150    2022-01-03  2026-05-29  285.7447  388.5939         0
+    118632        Nippon India Large Cap Fund - Regular - Growth          Nippon India MF         1150    2022-01-03  2026-05-29   42.8033  114.4385         0
+    118633         Nippon India Large Cap Fund - Direct - Growth          Nippon India MF         1150    2022-01-03  2026-05-29   45.1271   92.6175         0
+    118634        Nippon India Small Cap Fund - Regular - Growth          Nippon India MF         1150    2022-01-03  2026-05-29   58.3669  138.9727         0
+    118635                        Nippon India ETF Nifty 50 BeES          Nippon India MF         1150    2022-01-03  2026-05-29  150.4968  333.8906         0
+    118636  Nippon India Gilt Securities Fund - Regular - Growth          Nippon India MF         1150    2022-01-03  2026-05-29   30.1152   37.8243         0
+    120841                Kotak Bluechip Fund - Regular - Growth        Kotak Mahindra MF         1150    2022-01-03  2026-05-29  246.6585  484.6292         0
+    120842         Kotak Emerging Equity Fund - Regular - Growth        Kotak Mahindra MF         1150    2022-01-03  2026-05-29   58.0567   83.2980         0
+    120843                Kotak Flexicap Fund - Regular - Growth        Kotak Mahindra MF         1150    2022-01-03  2026-05-29   44.8104  180.7074         0
+    120844                  Kotak Liquid Fund - Regular - Growth        Kotak Mahindra MF         1150    2022-01-03  2026-05-29 3180.6318 4268.5497         0
+    119092                 Axis Bluechip Fund - Regular - Growth         Axis Mutual Fund         1150    2022-01-03  2026-05-29   35.1288   56.6987         0
+    119093                  Axis Bluechip Fund - Direct - Growth         Axis Mutual Fund         1150    2022-01-03  2026-05-29   33.0339   59.9798         0
+    119094                   Axis Midcap Fund - Regular - Growth         Axis Mutual Fund         1150    2022-01-03  2026-05-29   61.5099  211.7678         0
+    119095                Axis Small Cap Fund - Regular - Growth         Axis Mutual Fund         1150    2022-01-03  2026-05-29   48.0021  106.8214         0
+    101206         ABSL Frontline Equity Fund - Regular - Growth Aditya Birla Sun Life MF         1150    2022-01-03  2026-05-29  297.0795  808.0982         0
+    101207                ABSL Small Cap Fund - Regular - Growth Aditya Birla Sun Life MF         1150    2022-01-03  2026-05-29   36.9015   80.3517         0
+    101208                   ABSL Liquid Fund - Regular - Growth Aditya Birla Sun Life MF         1150    2022-01-03  2026-05-29  310.6977  410.1021         0
+    102885            UTI Nifty 50 Index Fund - Regular - Growth          UTI Mutual Fund         1150    2022-01-03  2026-05-29   83.5999  187.9295         0
+    102886                   UTI Mid Cap Fund - Regular - Growth          UTI Mutual Fund         1150    2022-01-03  2026-05-29  114.1285  169.8164         0
+    102887                 UTI Flexi Cap Fund - Regular - Growth          UTI Mutual Fund         1150    2022-01-03  2026-05-29  149.9155  419.3008         0
+    148567         Mirae Asset Large Cap Fund - Regular - Growth           Mirae Asset MF         1150    2022-01-03  2026-05-29   70.2514  251.6557         0
+    148568 Mirae Asset Emerging Bluechip Fund - Regular - Growth           Mirae Asset MF         1150    2022-01-03  2026-05-29   79.3949  209.3612         0
+    148569         Mirae Asset Tax Saver Fund - Regular - Growth           Mirae Asset MF         1150    2022-01-03  2026-05-29   28.3110   97.7435         0
+    149322            DSP Top 100 Equity Fund - Regular - Growth          DSP Mutual Fund         1150    2022-01-03  2026-05-29  296.9505  658.5042         0
+    149323                    DSP Midcap Fund - Regular - Growth          DSP Mutual Fund         1150    2022-01-03  2026-05-29   72.9664  257.6666         0
+    149324                 DSP Small Cap Fund - Regular - Growth          DSP Mutual Fund         1150    2022-01-03  2026-05-29   73.6757  336.6937         0
+
+[4] NAV COMPLETENESS STATS
+----------------------------------------------------------------------
+  Total NAV rows         : 46,000
+  Null NAV values        : 0  (0.00%)
+  Duplicate (code+date)  : 0
+  Avg NAV records/scheme : 1150
+  Min NAV records/scheme : 1150  (scheme: 100016)
+  Max NAV records/scheme : 1150  (scheme: 100016)
+
+[5] FUND MASTER — NULL CHECK
+----------------------------------------------------------------------
+  ✔  amfi_code                            nulls: 0
+  ✔  fund_house                           nulls: 0
+  ✔  scheme_name                          nulls: 0
+  ✔  category                             nulls: 0
+  ✔  sub_category                         nulls: 0
+  ✔  plan                                 nulls: 0
+  ✔  launch_date                          nulls: 0
+  ✔  benchmark                            nulls: 0
+  ✔  expense_ratio_pct                    nulls: 0
+  ✔  exit_load_pct                        nulls: 0
+  ✔  min_sip_amount                       nulls: 0
+  ✔  min_lumpsum_amount                   nulls: 0
+  ✔  fund_manager                         nulls: 0
+  ✔  risk_category                        nulls: 0
+  ✔  sebi_category_code                   nulls: 0
+
+[6] OVERALL VERDICT
+----------------------------------------------------------------------
+  ✔  DATA QUALITY: PASS — No critical issues found.
+
+======================================================================
