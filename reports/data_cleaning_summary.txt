@@ -1,19 +1,29 @@
 ========================================================================
 DATA CLEANING SUMMARY
 ========================================================================
-Generated : 2026-06-03 00:51:14
+Generated : 2026-06-03 01:01:10
 
 Dataset                           Input     Output    Dupes
 ---------------------------- ---------- ---------- --------
 01_fund_master                       40         40        0
+  -> standard cleanup only
 02_nav_history                   46,000     46,000        0
+  -> invalid NAV rows before fix: 0; missing NAV before fill: 0; missing after fill: 0
 03_aum_by_fund_house                 90         90        0
+  -> standard cleanup only
 04_monthly_sip_inflows               48         48        0
+  -> standard cleanup only
 05_category_inflows                 144        144        0
+  -> standard cleanup only
 06_industry_folio_count              21         21        0
+  -> standard cleanup only
 07_scheme_performance                40         40        0
+  -> negative Sharpe rows: 0; expense ratio out of range: 0
 08_investor_transactions         32,778     32,778        0
+  -> invalid amount rows removed: 0; unexpected KYC values: none
 09_portfolio_holdings               322        322        0
+  -> standard cleanup only
 10_benchmark_indices              8,050      8,050        0
+  -> standard cleanup only
 
 Processed files written to: C:\repo\Mutual_Fund_Analysis\data\processed

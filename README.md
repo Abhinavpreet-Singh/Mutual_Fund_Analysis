@@ -47,8 +47,11 @@ Mutual_Fund_Analysis/
 ├── dashboard/                  # Power BI / Tableau files (Day 5)
 ├── reports/                    # Generated charts & text reports
 ├── data_ingestion.py           # Task 3: Load all 10 CSVs
+├── clean_data.py               # Day 2: Dataset-specific cleaning and validation
 ├── live_nav_fetch.py           # Tasks 4 & 5: Fetch live NAV from mfapi.in
+├── build_day2_sqlite.py        # Day 2: Build SQLite DB and run queries
 ├── validate_amfi_codes.py      # Task 7: AMFI code validation
+├── data_dictionary.md          # Day 2: Column-level data dictionary
 ├── requirements.txt
 └── README.md
 ```
@@ -85,24 +88,30 @@ pip install -r requirements.txt
 # 3. Run data ingestion (Task 3)
 python data_ingestion.py
 
-# 4. Clean raw data into data/processed/ (Task 4)
+# 4. Clean raw data into data/processed/ (Day 2 tasks 1-3)
 python clean_data.py
 
 # 5. Fetch live NAV data (Tasks 4 & 5)
 python live_nav_fetch.py
 
-# 6. Validate AMFI codes (Task 7)
+# 6. Build the SQLite database and run SQL analytics
+python build_day2_sqlite.py
+
+# 7. Validate AMFI codes (Task 7)
 python validate_amfi_codes.py
 
-# 7. Open EDA notebook (Tasks 6 & 7)
+# 8. Open EDA notebook (Tasks 6 & 7)
 jupyter notebook notebooks/day1_eda_fund_master.ipynb
 ```
 
 ## ✅ What To Check After Each Run
 
 - `python data_ingestion.py` writes `reports/data_ingestion_summary.txt`.
-- `python clean_data.py` writes cleaned CSV copies into `data/processed/` and
-  `reports/data_cleaning_summary.txt`.
+- `python clean_data.py` writes cleaned CSV copies into `data/processed/`, the
+  three task-specific aliases (`clean_nav.csv`, `clean_transactions.csv`,
+  `clean_performance.csv`), and `reports/data_cleaning_summary.txt`.
+- `python build_day2_sqlite.py` creates `bluestock_mf.db`, `sql/schema.sql`,
+  `sql/queries.sql`, `reports/day2_query_results.md`, and `reports/day2_summary.md`.
 - `python live_nav_fetch.py` writes the fetched NAV CSVs into `data/raw/`.
 - `python validate_amfi_codes.py` writes `reports/data_quality_report.txt`.
 - Open `notebooks/day1_eda_fund_master.ipynb` and run the cells top to bottom to
@@ -120,7 +129,7 @@ jupyter notebook notebooks/day1_eda_fund_master.ipynb
 | Day       | Focus Area                           | Status      |
 | --------- | ------------------------------------ | ----------- |
 | **Day 1** | Project Setup + Data Ingestion (ETL) | ✅ Complete |
-| **Day 2** | Data Cleaning + SQL Database Design  | 🔲 Pending  |
+| **Day 2** | Data Cleaning + SQL Database Design  | 🔄 In progress |
 | **Day 3** | Exploratory Data Analysis (EDA)      | 🔲 Pending  |
 | **Day 4** | Fund Performance Analytics           | 🔲 Pending  |
 | **Day 5** | Dashboard Development                | 🔲 Pending  |
