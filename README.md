@@ -111,7 +111,8 @@ jupyter notebook notebooks/day1_eda_fund_master.ipynb
   three task-specific aliases (`clean_nav.csv`, `clean_transactions.csv`,
   `clean_performance.csv`), and `reports/data_cleaning_summary.txt`.
 - `python build_day2_sqlite.py` creates `bluestock_mf.db`, `sql/schema.sql`,
-  `sql/queries.sql`, `reports/day2_query_results.md`, and `reports/day2_summary.md`.
+  `sql/queries.sql`, `reports/day2_query_results.md`, and
+  `reports/day2_summary.md`.
 - `python live_nav_fetch.py` writes the fetched NAV CSVs into `data/raw/`.
 - `python validate_amfi_codes.py` writes `reports/data_quality_report.txt`.
 - Open `notebooks/day1_eda_fund_master.ipynb` and run the cells top to bottom to
@@ -126,15 +127,15 @@ jupyter notebook notebooks/day1_eda_fund_master.ipynb
 
 ## 📅 7-Day Task Progress
 
-| Day       | Focus Area                           | Status      |
-| --------- | ------------------------------------ | ----------- |
-| **Day 1** | Project Setup + Data Ingestion (ETL) | ✅ Complete |
+| Day       | Focus Area                           | Status         |
+| --------- | ------------------------------------ | -------------- |
+| **Day 1** | Project Setup + Data Ingestion (ETL) | ✅ Complete    |
 | **Day 2** | Data Cleaning + SQL Database Design  | 🔄 In progress |
-| **Day 3** | Exploratory Data Analysis (EDA)      | 🔲 Pending  |
-| **Day 4** | Fund Performance Analytics           | 🔲 Pending  |
-| **Day 5** | Dashboard Development                | 🔲 Pending  |
-| **Day 6** | Advanced Analytics + Risk Metrics    | 🔲 Pending  |
-| **Day 7** | Final Report + Presentation          | 🔲 Pending  |
+| **Day 3** | Exploratory Data Analysis (EDA)      | 🔲 Pending     |
+| **Day 4** | Fund Performance Analytics           | 🔲 Pending     |
+| **Day 5** | Dashboard Development                | 🔲 Pending     |
+| **Day 6** | Advanced Analytics + Risk Metrics    | 🔲 Pending     |
+| **Day 7** | Final Report + Presentation          | 🔲 Pending     |
 
 ---
 

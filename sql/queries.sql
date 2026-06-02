@@ -1,5 +1,5 @@
 -- Q1: Top 5 funds by AUM
-SELECT
+SELECT TOP 5
     amfi_code,
     scheme_name,
     fund_house,
@@ -7,37 +7,35 @@ SELECT
     expense_ratio_pct,
     risk_grade
 FROM fact_performance
-ORDER BY aum_crore DESC
-LIMIT 5;
+ORDER BY aum_crore DESC;
 
 -- Q2: Average NAV per month
 SELECT
-    strftime('%Y-%m', nav_date) AS month,
+    CONVERT(char(7), nav_date, 120) AS month,
     ROUND(AVG(nav), 4) AS avg_nav
 FROM fact_nav
-GROUP BY strftime('%Y-%m', nav_date)
+GROUP BY CONVERT(char(7), nav_date, 120)
 ORDER BY month;
 
 -- Q3: SIP inflow YoY growth
 SELECT
-    strftime('%Y', month) AS year,
+    CONVERT(char(4), month, 120) AS year,
     ROUND(AVG(yoy_growth_pct), 2) AS avg_yoy_growth_pct,
     ROUND(SUM(sip_inflow_crore), 2) AS total_sip_inflow_crore
 FROM fact_monthly_sip
 WHERE yoy_growth_pct IS NOT NULL
-GROUP BY strftime('%Y', month)
+GROUP BY CONVERT(char(4), month, 120)
 ORDER BY year;
 
 -- Q4: Transactions by state
-SELECT
+SELECT TOP 10
     state,
     COUNT(*) AS transaction_count,
     ROUND(SUM(amount_inr), 2) AS total_amount_inr,
     ROUND(AVG(amount_inr), 2) AS avg_amount_inr
 FROM fact_transactions
 GROUP BY state
-ORDER BY total_amount_inr DESC
-LIMIT 10;
+ORDER BY total_amount_inr DESC;
 
 -- Q5: Funds with expense_ratio < 1%
 SELECT
@@ -45,7 +43,7 @@ SELECT
     scheme_name,
     fund_house,
     category,
-    plan,
+    variant_type,
     expense_ratio_pct
 FROM dim_fund
 WHERE expense_ratio_pct < 1.0
@@ -62,28 +60,26 @@ GROUP BY category
 ORDER BY avg_return_3yr_pct DESC;
 
 -- Q7: Top 10 funds by Sharpe ratio
-SELECT
+SELECT TOP 10
     scheme_name,
     fund_house,
     category,
-    plan,
+    variant_type,
     sharpe_ratio,
     sortino_ratio,
     expense_ratio_pct
 FROM fact_performance
-ORDER BY sharpe_ratio DESC, sortino_ratio DESC
-LIMIT 10;
+ORDER BY sharpe_ratio DESC, sortino_ratio DESC;
 
 -- Q8: Top sectors in portfolio holdings by total market value
-SELECT
+SELECT TOP 10
     sector,
     COUNT(*) AS holding_rows,
     ROUND(SUM(market_value_cr), 2) AS total_market_value_cr,
     ROUND(AVG(weight_pct), 2) AS avg_weight_pct
 FROM fact_holdings
 GROUP BY sector
-ORDER BY total_market_value_cr DESC
-LIMIT 10;
+ORDER BY total_market_value_cr DESC;
 
 -- Q9: Latest NAV coverage by fund house
 WITH latest_nav AS (

@@ -107,21 +107,21 @@ Madhya Pradesh               2931       308312493.0       105190.21
 
 Rows returned: 14
 
- amfi_code                                          scheme_name               fund_house category    plan  expense_ratio_pct
-    118636 Nippon India Gilt Securities Fund - Regular - Growth          Nippon India MF     Debt Regular               0.55
-    100025         HDFC Short Term Debt Fund - Regular - Growth         HDFC Mutual Fund     Debt Regular               0.56
-    120844                 Kotak Liquid Fund - Regular - Growth        Kotak Mahindra MF     Debt Regular               0.60
-    119552             SBI Bluechip Fund - Direct Plan - Growth          SBI Mutual Fund   Equity  Direct               0.66
-    118633        Nippon India Large Cap Fund - Direct - Growth          Nippon India MF   Equity  Direct               0.72
-    119599            SBI Small Cap Fund - Direct Plan - Growth          SBI Mutual Fund   Equity  Direct               0.72
-    120507             ICICI Pru Liquid Fund - Regular - Growth      ICICI Prudential MF     Debt Regular               0.74
-    119093                 Axis Bluechip Fund - Direct - Growth         Axis Mutual Fund   Equity  Direct               0.75
-    119120         SBI Magnum Gilt Fund - Regular Plan - Growth          SBI Mutual Fund     Debt Regular               0.77
-    125498    HDFC Mid-Cap Opportunities Fund - Direct - Growth         HDFC Mutual Fund   Equity  Direct               0.78
-    101208                  ABSL Liquid Fund - Regular - Growth Aditya Birla Sun Life MF     Debt Regular               0.79
-    120504            ICICI Pru Bluechip Fund - Direct - Growth      ICICI Prudential MF   Equity  Direct               0.80
-    118635                       Nippon India ETF Nifty 50 BeES          Nippon India MF   Equity  Direct               0.89
-    125497             HDFC Top 100 Fund - Direct Plan - Growth         HDFC Mutual Fund   Equity  Direct               0.92
+ amfi_code                                          scheme_name               fund_house category variant_type  expense_ratio_pct
+    118636 Nippon India Gilt Securities Fund - Regular - Growth          Nippon India MF     Debt      Regular               0.55
+    100025         HDFC Short Term Debt Fund - Regular - Growth         HDFC Mutual Fund     Debt      Regular               0.56
+    120844                 Kotak Liquid Fund - Regular - Growth        Kotak Mahindra MF     Debt      Regular               0.60
+    119552             SBI Bluechip Fund - Direct Plan - Growth          SBI Mutual Fund   Equity       Direct               0.66
+    118633        Nippon India Large Cap Fund - Direct - Growth          Nippon India MF   Equity       Direct               0.72
+    119599            SBI Small Cap Fund - Direct Plan - Growth          SBI Mutual Fund   Equity       Direct               0.72
+    120507             ICICI Pru Liquid Fund - Regular - Growth      ICICI Prudential MF     Debt      Regular               0.74
+    119093                 Axis Bluechip Fund - Direct - Growth         Axis Mutual Fund   Equity       Direct               0.75
+    119120         SBI Magnum Gilt Fund - Regular Plan - Growth          SBI Mutual Fund     Debt      Regular               0.77
+    125498    HDFC Mid-Cap Opportunities Fund - Direct - Growth         HDFC Mutual Fund   Equity       Direct               0.78
+    101208                  ABSL Liquid Fund - Regular - Growth Aditya Birla Sun Life MF     Debt      Regular               0.79
+    120504            ICICI Pru Bluechip Fund - Direct - Growth      ICICI Prudential MF   Equity       Direct               0.80
+    118635                       Nippon India ETF Nifty 50 BeES          Nippon India MF   Equity       Direct               0.89
+    125497             HDFC Top 100 Fund - Direct Plan - Growth         HDFC Mutual Fund   Equity       Direct               0.92
 
 ---
 
@@ -149,17 +149,17 @@ Large & Mid Cap               14.56                  12.86       1.70
 
 Rows returned: 10
 
-                                         scheme_name               fund_house       category    plan  sharpe_ratio  sortino_ratio  expense_ratio_pct
-            ICICI Pru Liquid Fund - Regular - Growth      ICICI Prudential MF         Liquid Regular          7.68          10.37               0.74
-                Kotak Liquid Fund - Regular - Growth        Kotak Mahindra MF         Liquid Regular          6.18           9.70               0.60
-                 ABSL Liquid Fund - Regular - Growth Aditya Birla Sun Life MF         Liquid Regular          5.14           8.76               0.79
-        HDFC Short Term Debt Fund - Regular - Growth         HDFC Mutual Fund Short Duration Regular          1.84           2.79               0.56
-        SBI Magnum Gilt Fund - Regular Plan - Growth          SBI Mutual Fund           Gilt Regular          1.52           2.11               0.77
-Nippon India Gilt Securities Fund - Regular - Growth          Nippon India MF           Gilt Regular          1.33           2.38               0.55
-           HDFC Top 100 Fund - Regular Plan - Growth         HDFC Mutual Fund      Large Cap Regular          1.06           1.70               1.55
-       Mirae Asset Large Cap Fund - Regular - Growth           Mirae Asset MF      Large Cap Regular          1.06           1.66               1.46
-           ICICI Pru Bluechip Fund - Direct - Growth      ICICI Prudential MF      Large Cap  Direct          1.03           1.27               0.80
-      Nippon India Large Cap Fund - Regular - Growth          Nippon India MF      Large Cap Regular          1.00           1.68               1.51
+                                         scheme_name               fund_house       category variant_type  sharpe_ratio  sortino_ratio  expense_ratio_pct
+            ICICI Pru Liquid Fund - Regular - Growth      ICICI Prudential MF         Liquid      Regular          7.68          10.37               0.74
+                Kotak Liquid Fund - Regular - Growth        Kotak Mahindra MF         Liquid      Regular          6.18           9.70               0.60
+                 ABSL Liquid Fund - Regular - Growth Aditya Birla Sun Life MF         Liquid      Regular          5.14           8.76               0.79
+        HDFC Short Term Debt Fund - Regular - Growth         HDFC Mutual Fund Short Duration      Regular          1.84           2.79               0.56
+        SBI Magnum Gilt Fund - Regular Plan - Growth          SBI Mutual Fund           Gilt      Regular          1.52           2.11               0.77
+Nippon India Gilt Securities Fund - Regular - Growth          Nippon India MF           Gilt      Regular          1.33           2.38               0.55
+           HDFC Top 100 Fund - Regular Plan - Growth         HDFC Mutual Fund      Large Cap      Regular          1.06           1.70               1.55
+       Mirae Asset Large Cap Fund - Regular - Growth           Mirae Asset MF      Large Cap      Regular          1.06           1.66               1.46
+           ICICI Pru Bluechip Fund - Direct - Growth      ICICI Prudential MF      Large Cap       Direct          1.03           1.27               0.80
+      Nippon India Large Cap Fund - Regular - Growth          Nippon India MF      Large Cap      Regular          1.00           1.68               1.51
 
 ---
 
@@ -185,17 +185,17 @@ Infrastructure            22               22433.39            8.73
 
 Rows returned: 10
 
-              fund_house  schemes_covered       earliest_latest_date         latest_latest_date
-        HDFC Mutual Fund                5 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
-     ICICI Prudential MF                5 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
-         Nippon India MF                5 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
-         SBI Mutual Fund                5 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
-        Axis Mutual Fund                4 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
-       Kotak Mahindra MF                4 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
-Aditya Birla Sun Life MF                3 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
-         DSP Mutual Fund                3 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
-          Mirae Asset MF                3 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
-         UTI Mutual Fund                3 2026-05-29 00:00:00.000000 2026-05-29 00:00:00.000000
+              fund_house  schemes_covered earliest_latest_date latest_latest_date
+        HDFC Mutual Fund                5           2026-05-29         2026-05-29
+     ICICI Prudential MF                5           2026-05-29         2026-05-29
+         Nippon India MF                5           2026-05-29         2026-05-29
+         SBI Mutual Fund                5           2026-05-29         2026-05-29
+        Axis Mutual Fund                4           2026-05-29         2026-05-29
+       Kotak Mahindra MF                4           2026-05-29         2026-05-29
+Aditya Birla Sun Life MF                3           2026-05-29         2026-05-29
+         DSP Mutual Fund                3           2026-05-29         2026-05-29
+          Mirae Asset MF                3           2026-05-29         2026-05-29
+         UTI Mutual Fund                3           2026-05-29         2026-05-29
 
 ---
 
