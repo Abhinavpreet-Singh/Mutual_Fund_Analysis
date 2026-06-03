@@ -130,8 +130,8 @@ jupyter notebook notebooks/day1_eda_fund_master.ipynb
 | Day       | Focus Area                           | Status         |
 | --------- | ------------------------------------ | -------------- |
 | **Day 1** | Project Setup + Data Ingestion (ETL) | ✅ Complete    |
-| **Day 2** | Data Cleaning + SQL Database Design  | 🔄 In progress |
-| **Day 3** | Exploratory Data Analysis (EDA)      | 🔲 Pending     |
+| **Day 2** | Data Cleaning + SQL Database Design  | ✅ Complete |
+| **Day 3** | Exploratory Data Analysis (EDA)      | ✅ Complete     |
 | **Day 4** | Fund Performance Analytics           | 🔲 Pending     |
 | **Day 5** | Dashboard Development                | 🔲 Pending     |
 | **Day 6** | Advanced Analytics + Risk Metrics    | 🔲 Pending     |
