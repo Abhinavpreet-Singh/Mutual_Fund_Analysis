@@ -41,15 +41,22 @@ Mutual_Fund_Analysis/
 │   │   ├── 10_benchmark_indices.csv
 │   │   └── live_nav_*.csv      # Fetched from mfapi.in
 │   └── processed/              # Cleaned & transformed data
+├── database/                   # SQLite Database storage
+│   └── bluestock_mf.db
 ├── notebooks/
-│   └── day1_eda_fund_master.ipynb
+│   ├── day1_eda_fund_master.ipynb
+│   ├── EDA_Analysis.ipynb
+│   └── Performance_Analytics.ipynb
 ├── sql/                        # SQL schema & queries (Day 2)
 ├── dashboard/                  # Power BI / Tableau files (Day 5)
 ├── reports/                    # Generated charts & text reports
+│   ├── day3_charts/
+│   └── day4/                   # Day 4 Fund Performance Analytics reports & charts
 ├── data_ingestion.py           # Task 3: Load all 10 CSVs
 ├── clean_data.py               # Day 2: Dataset-specific cleaning and validation
 ├── live_nav_fetch.py           # Tasks 4 & 5: Fetch live NAV from mfapi.in
 ├── build_day2_sqlite.py        # Day 2: Build SQLite DB and run queries
+├── run_performance_analytics.py # Day 4: Performance analytics pipeline
 ├── validate_amfi_codes.py      # Task 7: AMFI code validation
 ├── data_dictionary.md          # Day 2: Column-level data dictionary
 ├── requirements.txt
@@ -110,9 +117,10 @@ jupyter notebook notebooks/day1_eda_fund_master.ipynb
 - `python clean_data.py` writes cleaned CSV copies into `data/processed/`, the
   three task-specific aliases (`clean_nav.csv`, `clean_transactions.csv`,
   `clean_performance.csv`), and `reports/data_cleaning_summary.txt`.
-- `python build_day2_sqlite.py` creates `bluestock_mf.db`, `sql/schema.sql`,
+- `python build_day2_sqlite.py` creates `database/bluestock_mf.db`, `sql/schema.sql`,
   `sql/queries.sql`, `reports/day2_query_results.md`, and
   `reports/day2_summary.md`.
+- `python run_performance_analytics.py` calculates performance metrics and saves CSV files and charts in `reports/day4/`, updating `database/bluestock_mf.db`.
 - `python live_nav_fetch.py` writes the fetched NAV CSVs into `data/raw/`.
 - `python validate_amfi_codes.py` writes `reports/data_quality_report.txt`.
 - Open `notebooks/day1_eda_fund_master.ipynb` and run the cells top to bottom to
@@ -132,7 +140,7 @@ jupyter notebook notebooks/day1_eda_fund_master.ipynb
 | **Day 1** | Project Setup + Data Ingestion (ETL) | ✅ Complete    |
 | **Day 2** | Data Cleaning + SQL Database Design  | ✅ Complete |
 | **Day 3** | Exploratory Data Analysis (EDA)      | ✅ Complete     |
-| **Day 4** | Fund Performance Analytics           | 🔲 Pending     |
+| **Day 4** | Fund Performance Analytics           | ✅ Complete     |
 | **Day 5** | Dashboard Development                | 🔲 Pending     |
 | **Day 6** | Advanced Analytics + Risk Metrics    | 🔲 Pending     |
 | **Day 7** | Final Report + Presentation          | 🔲 Pending     |

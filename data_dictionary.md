@@ -190,7 +190,7 @@ Benchmark index history loaded from `10_benchmark_indices.csv`.
 
 ## SQLite Database
 
-- `bluestock_mf.db`
+- `database/bluestock_mf.db`
 - Created tables: `dim_fund`, `dim_date`, `fact_nav`, `fact_aum`,
   `fact_monthly_sip`, `fact_category_inflows`, `fact_folio_count`,
   `fact_performance`, `fact_transactions`, `fact_holdings`, `fact_benchmark`

@@ -26,7 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 SQL_DIR = BASE_DIR / "sql"
 REPORT_DIR = BASE_DIR / "reports"
-DB_PATH = BASE_DIR / "bluestock_mf.db"
+DB_DIR = BASE_DIR / "database"
+DB_DIR.mkdir(parents=True, exist_ok=True)
+DB_PATH = DB_DIR / "bluestock_mf.db"
 SCHEMA_PATH = SQL_DIR / "schema.sql"
 QUERIES_PATH = SQL_DIR / "queries.sql"
 QUERY_REPORT_PATH = REPORT_DIR / "day2_query_results.md"
