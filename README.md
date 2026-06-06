@@ -141,7 +141,7 @@ jupyter notebook notebooks/day1_eda_fund_master.ipynb
 | **Day 2** | Data Cleaning + SQL Database Design  | ✅ Complete |
 | **Day 3** | Exploratory Data Analysis (EDA)      | ✅ Complete     |
 | **Day 4** | Fund Performance Analytics           | ✅ Complete     |
-| **Day 5** | Dashboard Development                | 🔲 Pending     |
+| **Day 5** | Dashboard Development                | ✅ Complete     |
 | **Day 6** | Advanced Analytics + Risk Metrics    | 🔲 Pending     |
 | **Day 7** | Final Report + Presentation          | 🔲 Pending     |
 

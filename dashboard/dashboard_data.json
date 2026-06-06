@@ -1,0 +1,1970 @@
+{
+  "aum_fh": [
+    {
+      "fund_house": "Mirae Asset MF",
+      "latest_aum": 49046
+    },
+    {
+      "fund_house": "Kotak Mahindra MF",
+      "latest_aum": 47469
+    },
+    {
+      "fund_house": "Nippon India MF",
+      "latest_aum": 43630
+    },
+    {
+      "fund_house": "DSP Mutual Fund",
+      "latest_aum": 41828
+    },
+    {
+      "fund_house": "UTI Mutual Fund",
+      "latest_aum": 41728
+    },
+    {
+      "fund_house": "Aditya Birla Sun Life MF",
+      "latest_aum": 41613
+    },
+    {
+      "fund_house": "ICICI Prudential MF",
+      "latest_aum": 41553
+    },
+    {
+      "fund_house": "SBI Mutual Fund",
+      "latest_aum": 36061
+    },
+    {
+      "fund_house": "Axis Mutual Fund",
+      "latest_aum": 28996
+    },
+    {
+      "fund_house": "HDFC Mutual Fund",
+      "latest_aum": 27953
+    }
+  ],
+  "aum_trend": [
+    {
+      "as_of_date": "2022-03-31",
+      "total_aum": 3018000
+    },
+    {
+      "as_of_date": "2022-09-30",
+      "total_aum": 3090000
+    },
+    {
+      "as_of_date": "2023-03-31",
+      "total_aum": 3235000
+    },
+    {
+      "as_of_date": "2023-09-30",
+      "total_aum": 3742000
+    },
+    {
+      "as_of_date": "2024-03-31",
+      "total_aum": 4375000
+    },
+    {
+      "as_of_date": "2024-09-30",
+      "total_aum": 4727000
+    },
+    {
+      "as_of_date": "2024-12-31",
+      "total_aum": 5268000
+    },
+    {
+      "as_of_date": "2025-03-31",
+      "total_aum": 5447000
+    },
+    {
+      "as_of_date": "2025-12-31",
+      "total_aum": 6274000
+    }
+  ],
+  "perf_data": [
+    {
+      "amfi_code": 100016,
+      "scheme_name": "HDFC Top 100 Fund - Regular Plan - Growth",
+      "category": "Large Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 1.2923525892154508,
+      "std_dev_ann_pct": 14.548134802183876,
+      "aum_crore": 6434,
+      "sharpe_ratio": -0.20151706755966936,
+      "alpha": 0.03747580763443281,
+      "expense_ratio_pct": 1.55,
+      "max_drawdown_pct": -24.734440880673304
+    },
+    {
+      "amfi_code": 100025,
+      "scheme_name": "HDFC Short Term Debt Fund - Regular - Growth",
+      "category": "Short Duration",
+      "plan": "Regular",
+      "return_3yr_pct": 3.9154793546847033,
+      "std_dev_ann_pct": 3.9052455281001603,
+      "aum_crore": 27953,
+      "sharpe_ratio": -0.5670947928476846,
+      "alpha": 0.042817920315060876,
+      "expense_ratio_pct": 0.56,
+      "max_drawdown_pct": -4.308263824636349
+    },
+    {
+      "amfi_code": 100033,
+      "scheme_name": "HDFC Mid-Cap Opportunities Fund - Regular - Growth",
+      "category": "Mid Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 32.43397122906222,
+      "std_dev_ann_pct": 18.936710835214164,
+      "aum_crore": 23185,
+      "sharpe_ratio": 1.093698743534631,
+      "alpha": 0.2719535450128533,
+      "expense_ratio_pct": 1.38,
+      "max_drawdown_pct": -16.217208574644847
+    },
+    {
+      "amfi_code": 101206,
+      "scheme_name": "ABSL Frontline Equity Fund - Regular - Growth",
+      "category": "Large Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 28.960211096593724,
+      "std_dev_ann_pct": 14.568212847454326,
+      "aum_crore": 23500,
+      "sharpe_ratio": 1.0272133278753695,
+      "alpha": 0.21399784776051212,
+      "expense_ratio_pct": 1.6,
+      "max_drawdown_pct": -11.291596329323072
+    },
+    {
+      "amfi_code": 101207,
+      "scheme_name": "ABSL Small Cap Fund - Regular - Growth",
+      "category": "Small Cap",
+      "plan": "Regular",
+      "return_3yr_pct": -4.151453816140693,
+      "std_dev_ann_pct": 25.79732221707774,
+      "aum_crore": 41613,
+      "sharpe_ratio": 0.16266076928646772,
+      "alpha": 0.10897091901704538,
+      "expense_ratio_pct": 1.53,
+      "max_drawdown_pct": -35.44691649336603
+    },
+    {
+      "amfi_code": 101208,
+      "scheme_name": "ABSL Liquid Fund - Regular - Growth",
+      "category": "Liquid",
+      "plan": "Regular",
+      "return_3yr_pct": 6.314299292105274,
+      "std_dev_ann_pct": 0.5064371352310743,
+      "aum_crore": 38995,
+      "sharpe_ratio": -0.8155673679088263,
+      "alpha": 0.060861457957871144,
+      "expense_ratio_pct": 0.79,
+      "max_drawdown_pct": -0.16224980244717857
+    },
+    {
+      "amfi_code": 102885,
+      "scheme_name": "UTI Nifty 50 Index Fund - Regular - Growth",
+      "category": "Index",
+      "plan": "Regular",
+      "return_3yr_pct": 19.662361245910965,
+      "std_dev_ann_pct": 12.836628397860562,
+      "aum_crore": 7350,
+      "sharpe_ratio": 0.8170993373494367,
+      "alpha": 0.17048756803412696,
+      "expense_ratio_pct": 1.57,
+      "max_drawdown_pct": -10.85986215250232
+    },
+    {
+      "amfi_code": 102886,
+      "scheme_name": "UTI Mid Cap Fund - Regular - Growth",
+      "category": "Mid Cap",
+      "plan": "Regular",
+      "return_3yr_pct": -0.7672319440258146,
+      "std_dev_ann_pct": 18.134576297311302,
+      "aum_crore": 41728,
+      "sharpe_ratio": -0.20583160785470309,
+      "alpha": 0.028969397866379445,
+      "expense_ratio_pct": 1.51,
+      "max_drawdown_pct": -28.00112356639287
+    },
+    {
+      "amfi_code": 102887,
+      "scheme_name": "UTI Flexi Cap Fund - Regular - Growth",
+      "category": "Flexi Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 25.549670172502026,
+      "std_dev_ann_pct": 15.758366917912994,
+      "aum_crore": 17912,
+      "sharpe_ratio": 0.6195175900829828,
+      "alpha": 0.16211256794033255,
+      "expense_ratio_pct": 1.64,
+      "max_drawdown_pct": -21.539827112383225
+    },
+    {
+      "amfi_code": 118632,
+      "scheme_name": "Nippon India Large Cap Fund - Regular - Growth",
+      "category": "Large Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 22.646647456747715,
+      "std_dev_ann_pct": 14.148352294996656,
+      "aum_crore": 20909,
+      "sharpe_ratio": 1.0816591793457042,
+      "alpha": 0.21829397904608644,
+      "expense_ratio_pct": 1.51,
+      "max_drawdown_pct": -17.41407508665723
+    },
+    {
+      "amfi_code": 118633,
+      "scheme_name": "Nippon India Large Cap Fund - Direct - Growth",
+      "category": "Large Cap",
+      "plan": "Direct",
+      "return_3yr_pct": 21.084691029380597,
+      "std_dev_ann_pct": 13.997213649186154,
+      "aum_crore": 39475,
+      "sharpe_ratio": 0.6452074382933215,
+      "alpha": 0.15643835948169668,
+      "expense_ratio_pct": 0.72,
+      "max_drawdown_pct": -18.62974313859551
+    },
+    {
+      "amfi_code": 118634,
+      "scheme_name": "Nippon India Small Cap Fund - Regular - Growth",
+      "category": "Small Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 8.0060298597036,
+      "std_dev_ann_pct": 25.24152094634046,
+      "aum_crore": 43630,
+      "sharpe_ratio": 0.44843400890899127,
+      "alpha": 0.1750072167561127,
+      "expense_ratio_pct": 1.53,
+      "max_drawdown_pct": -23.34488614483311
+    },
+    {
+      "amfi_code": 118635,
+      "scheme_name": "Nippon India ETF Nifty 50 BeES",
+      "category": "Index/ETF",
+      "plan": "Direct",
+      "return_3yr_pct": 20.00321571698329,
+      "std_dev_ann_pct": 12.983158874316306,
+      "aum_crore": 20284,
+      "sharpe_ratio": 0.664856998549062,
+      "alpha": 0.1513635464823924,
+      "expense_ratio_pct": 0.89,
+      "max_drawdown_pct": -11.650624505409091
+    },
+    {
+      "amfi_code": 118636,
+      "scheme_name": "Nippon India Gilt Securities Fund - Regular - Growth",
+      "category": "Gilt",
+      "plan": "Regular",
+      "return_3yr_pct": 4.061259859840338,
+      "std_dev_ann_pct": 3.9855381553882614,
+      "aum_crore": 30030,
+      "sharpe_ratio": -0.35662950751436784,
+      "alpha": 0.05074772999976104,
+      "expense_ratio_pct": 0.55,
+      "max_drawdown_pct": -8.316361763638703
+    },
+    {
+      "amfi_code": 119092,
+      "scheme_name": "Axis Bluechip Fund - Regular - Growth",
+      "category": "Large Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 0.5257668501786883,
+      "std_dev_ann_pct": 13.950661341123835,
+      "aum_crore": 25803,
+      "sharpe_ratio": 0.03078485095458594,
+      "alpha": 0.0689952982167755,
+      "expense_ratio_pct": 1.64,
+      "max_drawdown_pct": -14.401617909337261
+    },
+    {
+      "amfi_code": 119093,
+      "scheme_name": "Axis Bluechip Fund - Direct - Growth",
+      "category": "Large Cap",
+      "plan": "Direct",
+      "return_3yr_pct": 20.8115598266319,
+      "std_dev_ann_pct": 13.983295593638855,
+      "aum_crore": 15866,
+      "sharpe_ratio": 0.12961449795669328,
+      "alpha": 0.08232801295222093,
+      "expense_ratio_pct": 0.75,
+      "max_drawdown_pct": -21.751396370148225
+    },
+    {
+      "amfi_code": 119094,
+      "scheme_name": "Axis Midcap Fund - Regular - Growth",
+      "category": "Mid Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 35.10252788903541,
+      "std_dev_ann_pct": 19.407117423334718,
+      "aum_crore": 28996,
+      "sharpe_ratio": 0.9982309868636413,
+      "alpha": 0.2607666908004223,
+      "expense_ratio_pct": 1.38,
+      "max_drawdown_pct": -20.960883862039193
+    },
+    {
+      "amfi_code": 119095,
+      "scheme_name": "Axis Small Cap Fund - Regular - Growth",
+      "category": "Small Cap",
+      "plan": "Regular",
+      "return_3yr_pct": -11.703299329834216,
+      "std_dev_ann_pct": 25.066580232600437,
+      "aum_crore": 21545,
+      "sharpe_ratio": -0.0759735711747892,
+      "alpha": 0.048015953637759554,
+      "expense_ratio_pct": 1.38,
+      "max_drawdown_pct": -51.677753708526566
+    },
+    {
+      "amfi_code": 119120,
+      "scheme_name": "SBI Magnum Gilt Fund - Regular Plan - Growth",
+      "category": "Gilt",
+      "plan": "Regular",
+      "return_3yr_pct": 5.838988442093762,
+      "std_dev_ann_pct": 3.9670623690338704,
+      "aum_crore": 24101,
+      "sharpe_ratio": -0.22657538662791576,
+      "alpha": 0.05620895216638369,
+      "expense_ratio_pct": 0.77,
+      "max_drawdown_pct": -4.328728923970093
+    },
+    {
+      "amfi_code": 119551,
+      "scheme_name": "SBI Bluechip Fund - Regular Plan - Growth",
+      "category": "Large Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 30.448613060027817,
+      "std_dev_ann_pct": 13.741434141879644,
+      "aum_crore": 14288,
+      "sharpe_ratio": 1.2082665673727175,
+      "alpha": 0.23201007160635082,
+      "expense_ratio_pct": 1.54,
+      "max_drawdown_pct": -15.012385498645331
+    },
+    {
+      "amfi_code": 119552,
+      "scheme_name": "SBI Bluechip Fund - Direct Plan - Growth",
+      "category": "Large Cap",
+      "plan": "Direct",
+      "return_3yr_pct": 16.263375081360643,
+      "std_dev_ann_pct": 13.9393676127175,
+      "aum_crore": 1231,
+      "sharpe_ratio": 0.9532794968660104,
+      "alpha": 0.1986859936686296,
+      "expense_ratio_pct": 0.66,
+      "max_drawdown_pct": -11.803493502764296
+    },
+    {
+      "amfi_code": 119598,
+      "scheme_name": "SBI Small Cap Fund - Regular Plan - Growth",
+      "category": "Small Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 26.66309129954312,
+      "std_dev_ann_pct": 25.140578624384673,
+      "aum_crore": 19259,
+      "sharpe_ratio": 0.9453082575156095,
+      "alpha": 0.3033696538698332,
+      "expense_ratio_pct": 1.43,
+      "max_drawdown_pct": -28.706005721764548
+    },
+    {
+      "amfi_code": 119599,
+      "scheme_name": "SBI Small Cap Fund - Direct Plan - Growth",
+      "category": "Small Cap",
+      "plan": "Direct",
+      "return_3yr_pct": -1.337083602283895,
+      "std_dev_ann_pct": 24.950125122855862,
+      "aum_crore": 36061,
+      "sharpe_ratio": -0.05718662582817995,
+      "alpha": 0.048824215945539845,
+      "expense_ratio_pct": 0.72,
+      "max_drawdown_pct": -52.57422117012851
+    },
+    {
+      "amfi_code": 120503,
+      "scheme_name": "ICICI Pru Bluechip Fund - Regular - Growth",
+      "category": "Large Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 13.974980348212673,
+      "std_dev_ann_pct": 13.88443751311979,
+      "aum_crore": 36022,
+      "sharpe_ratio": 0.7979728586052847,
+      "alpha": 0.17703302365844073,
+      "expense_ratio_pct": 1.42,
+      "max_drawdown_pct": -13.897862823061635
+    },
+    {
+      "amfi_code": 120504,
+      "scheme_name": "ICICI Pru Bluechip Fund - Direct - Growth",
+      "category": "Large Cap",
+      "plan": "Direct",
+      "return_3yr_pct": 32.478927222623,
+      "std_dev_ann_pct": 14.363780566736658,
+      "aum_crore": 41553,
+      "sharpe_ratio": 1.0265242847993001,
+      "alpha": 0.2119482701352573,
+      "expense_ratio_pct": 0.8,
+      "max_drawdown_pct": -12.588275606922517
+    },
+    {
+      "amfi_code": 120505,
+      "scheme_name": "ICICI Pru Midcap Fund - Regular - Growth",
+      "category": "Mid Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 31.769242852237323,
+      "std_dev_ann_pct": 19.290949406318195,
+      "aum_crore": 979,
+      "sharpe_ratio": 1.1801011976606492,
+      "alpha": 0.2926358334175106,
+      "expense_ratio_pct": 1.36,
+      "max_drawdown_pct": -18.188513572116292
+    },
+    {
+      "amfi_code": 120506,
+      "scheme_name": "ICICI Pru Value Discovery Fund - Regular - Growth",
+      "category": "Value",
+      "plan": "Regular",
+      "return_3yr_pct": 18.417429266835228,
+      "std_dev_ann_pct": 15.230516379673068,
+      "aum_crore": 2571,
+      "sharpe_ratio": 0.6488787755249532,
+      "alpha": 0.1625385327998104,
+      "expense_ratio_pct": 1.41,
+      "max_drawdown_pct": -19.82565826298267
+    },
+    {
+      "amfi_code": 120507,
+      "scheme_name": "ICICI Pru Liquid Fund - Regular - Growth",
+      "category": "Liquid",
+      "plan": "Regular",
+      "return_3yr_pct": 7.392538786263403,
+      "std_dev_ann_pct": 0.49391262595120156,
+      "aum_crore": 39116,
+      "sharpe_ratio": 0.4957233929533123,
+      "alpha": 0.06746210411099539,
+      "expense_ratio_pct": 0.74,
+      "max_drawdown_pct": -0.09773140045925555
+    },
+    {
+      "amfi_code": 120841,
+      "scheme_name": "Kotak Bluechip Fund - Regular - Growth",
+      "category": "Large Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 17.263014444437943,
+      "std_dev_ann_pct": 13.463795800784448,
+      "aum_crore": 35585,
+      "sharpe_ratio": 0.4942725378672349,
+      "alpha": 0.13042924450705445,
+      "expense_ratio_pct": 1.59,
+      "max_drawdown_pct": -17.57361416468729
+    },
+    {
+      "amfi_code": 120842,
+      "scheme_name": "Kotak Emerging Equity Fund - Regular - Growth",
+      "category": "Mid Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 7.75416750547262,
+      "std_dev_ann_pct": 17.894715006571875,
+      "aum_crore": 47469,
+      "sharpe_ratio": 0.07599984804658923,
+      "alpha": 0.0780443887615508,
+      "expense_ratio_pct": 1.56,
+      "max_drawdown_pct": -24.003511326274886
+    },
+    {
+      "amfi_code": 120843,
+      "scheme_name": "Kotak Flexicap Fund - Regular - Growth",
+      "category": "Flexi Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 29.57511058901836,
+      "std_dev_ann_pct": 15.88698652360926,
+      "aum_crore": 35012,
+      "sharpe_ratio": 1.3067439695428409,
+      "alpha": 0.27330465038306057,
+      "expense_ratio_pct": 1.45,
+      "max_drawdown_pct": -12.97396816518679
+    },
+    {
+      "amfi_code": 120844,
+      "scheme_name": "Kotak Liquid Fund - Regular - Growth",
+      "category": "Liquid",
+      "plan": "Regular",
+      "return_3yr_pct": 6.694394239074852,
+      "std_dev_ann_pct": 0.5133170487371137,
+      "aum_crore": 27623,
+      "sharpe_ratio": -0.08874729621557288,
+      "alpha": 0.06455677495375998,
+      "expense_ratio_pct": 0.6,
+      "max_drawdown_pct": -0.11629327956168556
+    },
+    {
+      "amfi_code": 125497,
+      "scheme_name": "HDFC Top 100 Fund - Direct Plan - Growth",
+      "category": "Large Cap",
+      "plan": "Direct",
+      "return_3yr_pct": 18.429918008610045,
+      "std_dev_ann_pct": 14.668866752399518,
+      "aum_crore": 10611,
+      "sharpe_ratio": 0.7757902498211205,
+      "alpha": 0.17729754927531766,
+      "expense_ratio_pct": 0.92,
+      "max_drawdown_pct": -15.200013055606398
+    },
+    {
+      "amfi_code": 125498,
+      "scheme_name": "HDFC Mid-Cap Opportunities Fund - Direct - Growth",
+      "category": "Mid Cap",
+      "plan": "Direct",
+      "return_3yr_pct": 11.242518737374208,
+      "std_dev_ann_pct": 18.352430087335776,
+      "aum_crore": 18792,
+      "sharpe_ratio": 0.30061192104254786,
+      "alpha": 0.11989100971217971,
+      "expense_ratio_pct": 0.78,
+      "max_drawdown_pct": -21.11727956013212
+    },
+    {
+      "amfi_code": 148567,
+      "scheme_name": "Mirae Asset Large Cap Fund - Regular - Growth",
+      "category": "Large Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 33.991970400445304,
+      "std_dev_ann_pct": 14.19370675462035,
+      "aum_crore": 11361,
+      "sharpe_ratio": 1.4482911703262598,
+      "alpha": 0.2698375144191807,
+      "expense_ratio_pct": 1.46,
+      "max_drawdown_pct": -11.265729075028275
+    },
+    {
+      "amfi_code": 148568,
+      "scheme_name": "Mirae Asset Emerging Bluechip Fund - Regular - Growth",
+      "category": "Large & Mid Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 14.744434832760533,
+      "std_dev_ann_pct": 15.429144469823298,
+      "aum_crore": 49046,
+      "sharpe_ratio": 0.9262873467360144,
+      "alpha": 0.20873010086942337,
+      "expense_ratio_pct": 1.52,
+      "max_drawdown_pct": -15.27259422823477
+    },
+    {
+      "amfi_code": 148569,
+      "scheme_name": "Mirae Asset Tax Saver Fund - Regular - Growth",
+      "category": "ELSS",
+      "plan": "Regular",
+      "return_3yr_pct": 29.17135767741186,
+      "std_dev_ann_pct": 17.674006691346694,
+      "aum_crore": 2989,
+      "sharpe_ratio": 1.2349300257743294,
+      "alpha": 0.2827036785246582,
+      "expense_ratio_pct": 1.6,
+      "max_drawdown_pct": -16.39674294693263
+    },
+    {
+      "amfi_code": 149322,
+      "scheme_name": "DSP Top 100 Equity Fund - Regular - Growth",
+      "category": "Large Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 18.03973982038829,
+      "std_dev_ann_pct": 14.353859818510504,
+      "aum_crore": 41828,
+      "sharpe_ratio": 0.46403744922047774,
+      "alpha": 0.13173190226099432,
+      "expense_ratio_pct": 1.54,
+      "max_drawdown_pct": -14.844576917771747
+    },
+    {
+      "amfi_code": 149323,
+      "scheme_name": "DSP Midcap Fund - Regular - Growth",
+      "category": "Mid Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 26.863103668817146,
+      "std_dev_ann_pct": 17.74615939755084,
+      "aum_crore": 37835,
+      "sharpe_ratio": 1.1321218524747243,
+      "alpha": 0.26598577542043045,
+      "expense_ratio_pct": 1.61,
+      "max_drawdown_pct": -17.24810575345138
+    },
+    {
+      "amfi_code": 149324,
+      "scheme_name": "DSP Small Cap Fund - Regular - Growth",
+      "category": "Small Cap",
+      "plan": "Regular",
+      "return_3yr_pct": 26.99350260734621,
+      "std_dev_ann_pct": 24.840205005242098,
+      "aum_crore": 35124,
+      "sharpe_ratio": 0.9497958246616031,
+      "alpha": 0.3005787817097677,
+      "expense_ratio_pct": 1.52,
+      "max_drawdown_pct": -31.171900300634213
+    }
+  ],
+  "tx_state": [
+    {
+      "state": "Punjab",
+      "total_amount": 315780459.0,
+      "tx_count": 2965
+    },
+    {
+      "state": "Tamil Nadu",
+      "total_amount": 315177237.0,
+      "tx_count": 2806
+    },
+    {
+      "state": "Madhya Pradesh",
+      "total_amount": 308312493.0,
+      "tx_count": 2931
+    },
+    {
+      "state": "Rajasthan",
+      "total_amount": 298645822.0,
+      "tx_count": 2577
+    },
+    {
+      "state": "Gujarat",
+      "total_amount": 298358940.0,
+      "tx_count": 2780
+    },
+    {
+      "state": "West Bengal",
+      "total_amount": 297182514.0,
+      "tx_count": 2748
+    },
+    {
+      "state": "Telangana",
+      "total_amount": 290219284.0,
+      "tx_count": 2718
+    },
+    {
+      "state": "Delhi",
+      "total_amount": 289633404.0,
+      "tx_count": 2677
+    },
+    {
+      "state": "Uttar Pradesh",
+      "total_amount": 285368873.0,
+      "tx_count": 2695
+    },
+    {
+      "state": "Haryana",
+      "total_amount": 279634354.0,
+      "tx_count": 2736
+    },
+    {
+      "state": "Karnataka",
+      "total_amount": 273753570.0,
+      "tx_count": 2621
+    },
+    {
+      "state": "Maharashtra",
+      "total_amount": 269513480.0,
+      "tx_count": 2524
+    }
+  ],
+  "tx_type": [
+    {
+      "transaction_type": "Lumpsum",
+      "total_amount": 2059821448.0,
+      "tx_count": 8095
+    },
+    {
+      "transaction_type": "Redemption",
+      "total_amount": 1244525491.0,
+      "tx_count": 4967
+    },
+    {
+      "transaction_type": "SIP",
+      "total_amount": 217233491.0,
+      "tx_count": 19716
+    }
+  ],
+  "age_sip": [
+    {
+      "age_group": "18-25",
+      "avg_sip_amount": 10953.073245167854
+    },
+    {
+      "age_group": "26-35",
+      "avg_sip_amount": 10986.895696390922
+    },
+    {
+      "age_group": "36-45",
+      "avg_sip_amount": 10885.75862768981
+    },
+    {
+      "age_group": "46-55",
+      "avg_sip_amount": 11136.76347826087
+    },
+    {
+      "age_group": "56+",
+      "avg_sip_amount": 11574.922192151556
+    }
+  ],
+  "tx_monthly": [
+    {
+      "month": "2024-01",
+      "tx_count": 1949,
+      "total_amount": 217648305.0
+    },
+    {
+      "month": "2024-02",
+      "tx_count": 1861,
+      "total_amount": 193889416.0
+    },
+    {
+      "month": "2024-03",
+      "tx_count": 1974,
+      "total_amount": 213453498.0
+    },
+    {
+      "month": "2024-04",
+      "tx_count": 1952,
+      "total_amount": 208503874.0
+    },
+    {
+      "month": "2024-05",
+      "tx_count": 1901,
+      "total_amount": 205126352.0
+    },
+    {
+      "month": "2024-06",
+      "tx_count": 1989,
+      "total_amount": 222265329.0
+    },
+    {
+      "month": "2024-07",
+      "tx_count": 1968,
+      "total_amount": 197732026.0
+    },
+    {
+      "month": "2024-08",
+      "tx_count": 1985,
+      "total_amount": 227805125.0
+    },
+    {
+      "month": "2024-09",
+      "tx_count": 1833,
+      "total_amount": 188561816.0
+    },
+    {
+      "month": "2024-10",
+      "tx_count": 1957,
+      "total_amount": 213651354.0
+    },
+    {
+      "month": "2024-11",
+      "tx_count": 1863,
+      "total_amount": 196930490.0
+    },
+    {
+      "month": "2024-12",
+      "tx_count": 1978,
+      "total_amount": 215065667.0
+    },
+    {
+      "month": "2025-01",
+      "tx_count": 2020,
+      "total_amount": 206644171.0
+    },
+    {
+      "month": "2025-02",
+      "tx_count": 1754,
+      "total_amount": 182923366.0
+    },
+    {
+      "month": "2025-03",
+      "tx_count": 1973,
+      "total_amount": 219667398.0
+    },
+    {
+      "month": "2025-04",
+      "tx_count": 1859,
+      "total_amount": 208057871.0
+    },
+    {
+      "month": "2025-05",
+      "tx_count": 1962,
+      "total_amount": 203654372.0
+    }
+  ],
+  "sip_inflow": [
+    {
+      "month": "2022-01-01",
+      "sip_inflow_crore": 11517,
+      "active_sip_accounts_crore": 4.91
+    },
+    {
+      "month": "2022-02-01",
+      "sip_inflow_crore": 11438,
+      "active_sip_accounts_crore": 4.93
+    },
+    {
+      "month": "2022-03-01",
+      "sip_inflow_crore": 12328,
+      "active_sip_accounts_crore": 5.09
+    },
+    {
+      "month": "2022-04-01",
+      "sip_inflow_crore": 11863,
+      "active_sip_accounts_crore": 5.48
+    },
+    {
+      "month": "2022-05-01",
+      "sip_inflow_crore": 12286,
+      "active_sip_accounts_crore": 5.55
+    },
+    {
+      "month": "2022-06-01",
+      "sip_inflow_crore": 12276,
+      "active_sip_accounts_crore": 5.6
+    },
+    {
+      "month": "2022-07-01",
+      "sip_inflow_crore": 12140,
+      "active_sip_accounts_crore": 5.65
+    },
+    {
+      "month": "2022-08-01",
+      "sip_inflow_crore": 12694,
+      "active_sip_accounts_crore": 5.71
+    },
+    {
+      "month": "2022-09-01",
+      "sip_inflow_crore": 12976,
+      "active_sip_accounts_crore": 5.8
+    },
+    {
+      "month": "2022-10-01",
+      "sip_inflow_crore": 13040,
+      "active_sip_accounts_crore": 5.93
+    },
+    {
+      "month": "2022-11-01",
+      "sip_inflow_crore": 13306,
+      "active_sip_accounts_crore": 6.0
+    },
+    {
+      "month": "2022-12-01",
+      "sip_inflow_crore": 13573,
+      "active_sip_accounts_crore": 6.05
+    },
+    {
+      "month": "2023-01-01",
+      "sip_inflow_crore": 13856,
+      "active_sip_accounts_crore": 6.13
+    },
+    {
+      "month": "2023-02-01",
+      "sip_inflow_crore": 13687,
+      "active_sip_accounts_crore": 6.19
+    },
+    {
+      "month": "2023-03-01",
+      "sip_inflow_crore": 14276,
+      "active_sip_accounts_crore": 6.32
+    },
+    {
+      "month": "2023-04-01",
+      "sip_inflow_crore": 14749,
+      "active_sip_accounts_crore": 6.41
+    },
+    {
+      "month": "2023-05-01",
+      "sip_inflow_crore": 14749,
+      "active_sip_accounts_crore": 6.5
+    },
+    {
+      "month": "2023-06-01",
+      "sip_inflow_crore": 14734,
+      "active_sip_accounts_crore": 6.55
+    },
+    {
+      "month": "2023-07-01",
+      "sip_inflow_crore": 15245,
+      "active_sip_accounts_crore": 6.65
+    },
+    {
+      "month": "2023-08-01",
+      "sip_inflow_crore": 15814,
+      "active_sip_accounts_crore": 6.73
+    },
+    {
+      "month": "2023-09-01",
+      "sip_inflow_crore": 16042,
+      "active_sip_accounts_crore": 6.82
+    },
+    {
+      "month": "2023-10-01",
+      "sip_inflow_crore": 16928,
+      "active_sip_accounts_crore": 6.91
+    },
+    {
+      "month": "2023-11-01",
+      "sip_inflow_crore": 17073,
+      "active_sip_accounts_crore": 7.0
+    },
+    {
+      "month": "2023-12-01",
+      "sip_inflow_crore": 17610,
+      "active_sip_accounts_crore": 7.1
+    },
+    {
+      "month": "2024-01-01",
+      "sip_inflow_crore": 18838,
+      "active_sip_accounts_crore": 7.2
+    },
+    {
+      "month": "2024-02-01",
+      "sip_inflow_crore": 19187,
+      "active_sip_accounts_crore": 7.3
+    },
+    {
+      "month": "2024-03-01",
+      "sip_inflow_crore": 20371,
+      "active_sip_accounts_crore": 7.4
+    },
+    {
+      "month": "2024-04-01",
+      "sip_inflow_crore": 20371,
+      "active_sip_accounts_crore": 7.6
+    },
+    {
+      "month": "2024-05-01",
+      "sip_inflow_crore": 21262,
+      "active_sip_accounts_crore": 7.78
+    },
+    {
+      "month": "2024-06-01",
+      "sip_inflow_crore": 21262,
+      "active_sip_accounts_crore": 7.9
+    },
+    {
+      "month": "2024-07-01",
+      "sip_inflow_crore": 23332,
+      "active_sip_accounts_crore": 8.0
+    },
+    {
+      "month": "2024-08-01",
+      "sip_inflow_crore": 23547,
+      "active_sip_accounts_crore": 8.11
+    },
+    {
+      "month": "2024-09-01",
+      "sip_inflow_crore": 24509,
+      "active_sip_accounts_crore": 8.22
+    },
+    {
+      "month": "2024-10-01",
+      "sip_inflow_crore": 25323,
+      "active_sip_accounts_crore": 8.3
+    },
+    {
+      "month": "2024-11-01",
+      "sip_inflow_crore": 25320,
+      "active_sip_accounts_crore": 8.4
+    },
+    {
+      "month": "2024-12-01",
+      "sip_inflow_crore": 26459,
+      "active_sip_accounts_crore": 8.5
+    },
+    {
+      "month": "2025-01-01",
+      "sip_inflow_crore": 26400,
+      "active_sip_accounts_crore": 8.22
+    },
+    {
+      "month": "2025-02-01",
+      "sip_inflow_crore": 25999,
+      "active_sip_accounts_crore": 8.3
+    },
+    {
+      "month": "2025-03-01",
+      "sip_inflow_crore": 25926,
+      "active_sip_accounts_crore": 8.11
+    },
+    {
+      "month": "2025-04-01",
+      "sip_inflow_crore": 26632,
+      "active_sip_accounts_crore": 8.38
+    },
+    {
+      "month": "2025-05-01",
+      "sip_inflow_crore": 26688,
+      "active_sip_accounts_crore": 8.5
+    },
+    {
+      "month": "2025-06-01",
+      "sip_inflow_crore": 27274,
+      "active_sip_accounts_crore": 8.62
+    },
+    {
+      "month": "2025-07-01",
+      "sip_inflow_crore": 28464,
+      "active_sip_accounts_crore": 8.75
+    },
+    {
+      "month": "2025-08-01",
+      "sip_inflow_crore": 28265,
+      "active_sip_accounts_crore": 8.85
+    },
+    {
+      "month": "2025-09-01",
+      "sip_inflow_crore": 29361,
+      "active_sip_accounts_crore": 9.0
+    },
+    {
+      "month": "2025-10-01",
+      "sip_inflow_crore": 29529,
+      "active_sip_accounts_crore": 9.1
+    },
+    {
+      "month": "2025-11-01",
+      "sip_inflow_crore": 30200,
+      "active_sip_accounts_crore": 9.2
+    },
+    {
+      "month": "2025-12-01",
+      "sip_inflow_crore": 31002,
+      "active_sip_accounts_crore": 9.35
+    }
+  ],
+  "nifty50": [
+    {
+      "month": "2022-01",
+      "nifty50_avg": 18167.48238095238
+    },
+    {
+      "month": "2022-02",
+      "nifty50_avg": 18802.8535
+    },
+    {
+      "month": "2022-03",
+      "nifty50_avg": 19088.48304347826
+    },
+    {
+      "month": "2022-04",
+      "nifty50_avg": 20186.594285714284
+    },
+    {
+      "month": "2022-05",
+      "nifty50_avg": 19530.993636363637
+    },
+    {
+      "month": "2022-06",
+      "nifty50_avg": 19403.893181818185
+    },
+    {
+      "month": "2022-07",
+      "nifty50_avg": 19346.654761904763
+    },
+    {
+      "month": "2022-08",
+      "nifty50_avg": 19683.21608695652
+    },
+    {
+      "month": "2022-09",
+      "nifty50_avg": 20614.026363636363
+    },
+    {
+      "month": "2022-10",
+      "nifty50_avg": 20703.762857142858
+    },
+    {
+      "month": "2022-11",
+      "nifty50_avg": 21441.904545454545
+    },
+    {
+      "month": "2022-12",
+      "nifty50_avg": 21959.28181818182
+    },
+    {
+      "month": "2023-01",
+      "nifty50_avg": 23507.166818181817
+    },
+    {
+      "month": "2023-02",
+      "nifty50_avg": 24593.1565
+    },
+    {
+      "month": "2023-03",
+      "nifty50_avg": 24504.381739130436
+    },
+    {
+      "month": "2023-04",
+      "nifty50_avg": 24302.0925
+    },
+    {
+      "month": "2023-05",
+      "nifty50_avg": 24400.100000000002
+    },
+    {
+      "month": "2023-06",
+      "nifty50_avg": 24241.594545454544
+    },
+    {
+      "month": "2023-07",
+      "nifty50_avg": 24307.602857142858
+    },
+    {
+      "month": "2023-08",
+      "nifty50_avg": 25002.813913043476
+    },
+    {
+      "month": "2023-09",
+      "nifty50_avg": 25969.408095238094
+    },
+    {
+      "month": "2023-10",
+      "nifty50_avg": 27101.841363636366
+    },
+    {
+      "month": "2023-11",
+      "nifty50_avg": 26381.04318181818
+    },
+    {
+      "month": "2023-12",
+      "nifty50_avg": 26426.11857142857
+    },
+    {
+      "month": "2024-01",
+      "nifty50_avg": 26629.411739130435
+    },
+    {
+      "month": "2024-02",
+      "nifty50_avg": 26970.50333333333
+    },
+    {
+      "month": "2024-03",
+      "nifty50_avg": 27198.095238095237
+    },
+    {
+      "month": "2024-04",
+      "nifty50_avg": 26396.70590909091
+    },
+    {
+      "month": "2024-05",
+      "nifty50_avg": 25041.107826086954
+    },
+    {
+      "month": "2024-06",
+      "nifty50_avg": 24335.604
+    },
+    {
+      "month": "2024-07",
+      "nifty50_avg": 23346.779130434785
+    },
+    {
+      "month": "2024-08",
+      "nifty50_avg": 22456.831363636364
+    },
+    {
+      "month": "2024-09",
+      "nifty50_avg": 21725.02761904762
+    },
+    {
+      "month": "2024-10",
+      "nifty50_avg": 21482.792173913043
+    },
+    {
+      "month": "2024-11",
+      "nifty50_avg": 21394.13761904762
+    },
+    {
+      "month": "2024-12",
+      "nifty50_avg": 21788.118636363637
+    },
+    {
+      "month": "2025-01",
+      "nifty50_avg": 21801.449130434783
+    },
+    {
+      "month": "2025-02",
+      "nifty50_avg": 20847.513
+    },
+    {
+      "month": "2025-03",
+      "nifty50_avg": 21183.42095238095
+    },
+    {
+      "month": "2025-04",
+      "nifty50_avg": 20210.23
+    },
+    {
+      "month": "2025-05",
+      "nifty50_avg": 20505.35090909091
+    },
+    {
+      "month": "2025-06",
+      "nifty50_avg": 20917.21238095238
+    },
+    {
+      "month": "2025-07",
+      "nifty50_avg": 19800.231304347828
+    },
+    {
+      "month": "2025-08",
+      "nifty50_avg": 20300.678571428572
+    },
+    {
+      "month": "2025-09",
+      "nifty50_avg": 20064.28318181818
+    },
+    {
+      "month": "2025-10",
+      "nifty50_avg": 19949.186521739128
+    },
+    {
+      "month": "2025-11",
+      "nifty50_avg": 19349.835
+    },
+    {
+      "month": "2025-12",
+      "nifty50_avg": 18711.62347826087
+    },
+    {
+      "month": "2026-01",
+      "nifty50_avg": 19174.146363636362
+    },
+    {
+      "month": "2026-02",
+      "nifty50_avg": 20704.0025
+    },
+    {
+      "month": "2026-03",
+      "nifty50_avg": 20103.05272727273
+    },
+    {
+      "month": "2026-04",
+      "nifty50_avg": 19462.200454545455
+    },
+    {
+      "month": "2026-05",
+      "nifty50_avg": 19078.124285714286
+    }
+  ],
+  "cat_inflows": [
+    {
+      "month": "2024-04-01",
+      "category": "ELSS",
+      "net_inflow_crore": 466.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 4947.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Gilt",
+      "net_inflow_crore": 784.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 2955.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 4214.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 2413.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Liquid",
+      "net_inflow_crore": 37537.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 3897.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 8052.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4400.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 3533.0
+    },
+    {
+      "month": "2024-04-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1328.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "ELSS",
+      "net_inflow_crore": 553.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 5529.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Gilt",
+      "net_inflow_crore": 836.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 3487.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 4368.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 2076.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Liquid",
+      "net_inflow_crore": 41872.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 5300.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 8354.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4833.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 4092.0
+    },
+    {
+      "month": "2024-05-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1361.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "ELSS",
+      "net_inflow_crore": 472.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 4478.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Gilt",
+      "net_inflow_crore": 864.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 3163.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 4610.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 2519.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Liquid",
+      "net_inflow_crore": 40486.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 5047.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 10030.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4321.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 3535.0
+    },
+    {
+      "month": "2024-06-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1386.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "ELSS",
+      "net_inflow_crore": 471.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 4869.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Gilt",
+      "net_inflow_crore": 959.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 3291.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 5023.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 2574.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Liquid",
+      "net_inflow_crore": 34643.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 4548.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 9896.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4170.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 3582.0
+    },
+    {
+      "month": "2024-07-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1582.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "ELSS",
+      "net_inflow_crore": 499.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 5562.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Gilt",
+      "net_inflow_crore": 952.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 3684.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 5411.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 1940.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Liquid",
+      "net_inflow_crore": 41952.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 3899.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 8360.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4658.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 3376.0
+    },
+    {
+      "month": "2024-08-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1308.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "ELSS",
+      "net_inflow_crore": 537.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 5397.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Gilt",
+      "net_inflow_crore": 925.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 3015.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 4528.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 1879.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Liquid",
+      "net_inflow_crore": 35308.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 4960.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 8518.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 5327.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 4137.0
+    },
+    {
+      "month": "2024-09-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1334.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "ELSS",
+      "net_inflow_crore": 537.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 6004.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Gilt",
+      "net_inflow_crore": 898.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 3314.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 4581.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 2255.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Liquid",
+      "net_inflow_crore": 39091.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 4106.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 7680.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4675.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 4444.0
+    },
+    {
+      "month": "2024-10-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1595.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "ELSS",
+      "net_inflow_crore": 571.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 6111.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Gilt",
+      "net_inflow_crore": 704.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 3264.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 5556.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 1870.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Liquid",
+      "net_inflow_crore": 40506.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 4336.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 7397.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 5316.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 3256.0
+    },
+    {
+      "month": "2024-11-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1436.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "ELSS",
+      "net_inflow_crore": 521.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 4654.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Gilt",
+      "net_inflow_crore": 831.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 3538.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 4878.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 1923.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Liquid",
+      "net_inflow_crore": 34933.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 5023.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 9820.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4159.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 4249.0
+    },
+    {
+      "month": "2024-12-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1414.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "ELSS",
+      "net_inflow_crore": 516.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 5603.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Gilt",
+      "net_inflow_crore": 744.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 2967.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 4816.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 2025.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Liquid",
+      "net_inflow_crore": 33892.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 4316.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 7893.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4752.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 4554.0
+    },
+    {
+      "month": "2025-01-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1339.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "ELSS",
+      "net_inflow_crore": 437.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 6068.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Gilt",
+      "net_inflow_crore": 942.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 3360.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 5524.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 1925.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Liquid",
+      "net_inflow_crore": 32374.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 4819.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 9215.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4033.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 3534.0
+    },
+    {
+      "month": "2025-02-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1400.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "ELSS",
+      "net_inflow_crore": 500.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Flexi Cap",
+      "net_inflow_crore": 4767.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Gilt",
+      "net_inflow_crore": 956.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Hybrid",
+      "net_inflow_crore": 2830.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Large & Mid Cap",
+      "net_inflow_crore": 4243.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Large Cap",
+      "net_inflow_crore": 2234.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Liquid",
+      "net_inflow_crore": 38681.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Mid Cap",
+      "net_inflow_crore": 5061.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Sectoral/Thematic",
+      "net_inflow_crore": 8614.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Short Duration",
+      "net_inflow_crore": 4886.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Small Cap",
+      "net_inflow_crore": 4304.0
+    },
+    {
+      "month": "2025-03-01",
+      "category": "Value/Contra",
+      "net_inflow_crore": 1497.0
+    }
+  ]
+}

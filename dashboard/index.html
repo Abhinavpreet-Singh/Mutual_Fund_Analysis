@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluestock Mutual Fund Analytics Dashboard</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary: #0F766E; /* Deep Teal */
+            --secondary: #2563EB; /* Indigo */
+            --accent: #7C3AED; /* Violet */
+            --rose: #DC2626;
+            --amber: #F59E0B;
+            --sidebar-width: 260px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: #ffffff;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            background-color: var(--primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-item {
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-item:hover {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+        }
+
+        .nav-item.active {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        /* Main Content Container */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Header */
+        .top-header {
+            height: 70px;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+
+        .page-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .header-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Dashboard View Container */
+        .dashboard-view {
+            flex: 1;
+            padding: 30px 40px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .dashboard-view.active {
+            display: block;
+        }
+
+        /* KPI Cards Grid */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px 24px;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+        }
+
+        .kpi-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .kpi-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .kpi-subtext {
+            font-size: 12px;
+            color: #10B981;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Layout Grids */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .grid-1-2 {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Filter Slicer Row */
+        .slicer-row {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px 24px;
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+            align-items: center;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+        }
+
+        .slicer-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .slicer-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .slicer-select {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-main);
+            outline: none;
+            background-color: #ffffff;
+            min-width: 180px;
+        }
+
+        /* Table styles */
+        .table-container {
+            overflow-x: auto;
+            flex: 1;
+            max-height: 400px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        tr:hover td {
+            background-color: #f8fafc;
+            cursor: pointer;
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .badge-equity { background-color: #e0f2fe; color: #0369a1; }
+        .badge-debt { background-color: #fef3c7; color: #d97706; }
+        .badge-liquid { background-color: #dcfce7; color: #15803d; }
+
+        /* Heatmap Grid CSS */
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: 120px repeat(12, 1fr);
+            gap: 4px;
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        .heatmap-cell {
+            padding: 10px 4px;
+            text-align: center;
+            border-radius: 4px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .heatmap-header {
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 8px 0;
+            text-align: center;
+        }
+
+        .heatmap-row-label {
+            align-self: center;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="brand">
+            <div class="brand-logo">B</div>
+            <div class="brand-name">Bluestock MF</div>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item active" onclick="switchView('overview', this)">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"></path></svg>
+                Industry Overview
+            </li>
+            <li class="nav-item" onclick="switchView('performance', this)">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                Fund Performance
+            </li>
+            <li class="nav-item" onclick="switchView('investors', this)">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                Investor Analytics
+            </li>
+            <li class="nav-item" onclick="switchView('trends', this)">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                SIP & Market Trends
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="top-header">
+            <div class="page-title" id="header-view-name">Industry Overview</div>
+            <div class="header-meta">Bluestock Analytics Sprint · Last sync: Dec 2025</div>
+        </div>
+
+        <!-- PAGE 1: Industry Overview -->
+        <div class="dashboard-view active" id="view-overview">
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <div class="kpi-label">Total Industry AUM</div>
+                    <div class="kpi-value">₹81.0 L Cr</div>
+                    <div class="kpi-subtext">↑ 14.5% YoY Growth</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Monthly SIP Inflow</div>
+                    <div class="kpi-value">₹31,002 Cr</div>
+                    <div class="kpi-subtext">↑ 18.2% ATH milestone</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Total Folio Base</div>
+                    <div class="kpi-value">26.12 Cr</div>
+                    <div class="kpi-subtext">↑ Double since 2022</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Number of Schemes</div>
+                    <div class="kpi-value">1,908</div>
+                    <div class="kpi-subtext">Across 40 active AMCs</div>
+                </div>
+            </div>
+            <div class="grid-2col">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Industry AUM Growth Trend (2022–2025)</div>
+                    </div>
+                    <canvas id="chart-industry-aum" height="300"></canvas>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Top 10 Fund Houses by AUM (INR Crore)</div>
+                    </div>
+                    <canvas id="chart-fh-aum" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 2: Fund Performance -->
+        <div class="dashboard-view" id="view-performance">
+            <!-- Slicer row -->
+            <div class="slicer-row">
+                <div class="slicer-group">
+                    <label class="slicer-label">Fund House</label>
+                    <select class="slicer-select" id="slicer-amc" onchange="filterPerformanceData()">
+                        <option value="All">All Fund Houses</option>
+                    </select>
+                </div>
+                <div class="slicer-group">
+                    <label class="slicer-label">Category</label>
+                    <select class="slicer-select" id="slicer-category" onchange="filterPerformanceData()">
+                        <option value="All">All Categories</option>
+                        <option value="Equity">Equity</option>
+                        <option value="Debt">Debt</option>
+                    </select>
+                </div>
+                <div class="slicer-group">
+                    <label class="slicer-label">Plan Type</label>
+                    <select class="slicer-select" id="slicer-plan" onchange="filterPerformanceData()">
+                        <option value="All">All Plans</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Direct">Direct</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid-2col">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Risk-Return Profile (3yr CAGR vs Std Dev)</div>
+                    </div>
+                    <canvas id="chart-risk-return" height="280"></canvas>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Fund Scorecard & Metrics Table</div>
+                    </div>
+                    <div class="table-container">
+                        <table id="performance-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Scheme Name</th>
+                                    <th>Category</th>
+                                    <th>3yr CAGR</th>
+                                    <th>Sharpe</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="performance-table-body">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title" id="nav-chart-title">NAV Cumulative Performance (Click a fund in table to view)</div>
+                </div>
+                <canvas id="chart-nav-compare" height="250"></canvas>
+            </div>
+        </div>
+
+        <!-- PAGE 3: Investor Analytics -->
+        <div class="dashboard-view" id="view-investors">
+            <!-- Slicer row -->
+            <div class="slicer-row">
+                <div class="slicer-group">
+                    <label class="slicer-label">Investor State</label>
+                    <select class="slicer-select" id="slicer-state" onchange="filterInvestorData()">
+                        <option value="All">All States</option>
+                    </select>
+                </div>
+                <div class="slicer-group">
+                    <label class="slicer-label">City Tier</label>
+                    <select class="slicer-select" id="slicer-tier" onchange="filterInvestorData()">
+                        <option value="All">All Tiers</option>
+                        <option value="T30">T30</option>
+                        <option value="B30">B30</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid-2col">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Transaction Amount by State (Top 15, INR)</div>
+                    </div>
+                    <canvas id="chart-state-amount" height="280"></canvas>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">SIP vs Lumpsum vs Redemption Amount Split</div>
+                    </div>
+                    <canvas id="chart-tx-type" height="280"></canvas>
+                </div>
+            </div>
+            <div class="grid-2col">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Age Group vs Average SIP Amount (INR)</div>
+                    </div>
+                    <canvas id="chart-age-sip" height="280"></canvas>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Monthly Transaction Volume Trend</div>
+                    </div>
+                    <canvas id="chart-monthly-vol" height="280"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 4: SIP & Market Trends -->
+        <div class="dashboard-view" id="view-trends">
+            <div class="kpi-row">
+                <div class="kpi-card" style="grid-column: span 2;">
+                    <div class="kpi-label">SIP Account Base Growth</div>
+                    <div class="kpi-value">9.35 Crore Accounts</div>
+                    <div class="kpi-subtext">↑ 24% Growth since Dec 2024</div>
+                </div>
+                <div class="kpi-card" style="grid-column: span 2;">
+                    <div class="kpi-label">Total SIP Value Inflow</div>
+                    <div class="kpi-value">₹3.16 L Crore</div>
+                    <div class="kpi-subtext">Total SIP investments collected in 2025</div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div class="card-title">SIP Inflow (INR Cr) vs Nifty 50 Index Close (Monthly Avg)</div>
+                </div>
+                <canvas id="chart-sip-nifty" height="300"></canvas>
+            </div>
+
+            <div class="grid-2col">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Top Category Net Inflows (FY25, INR Crore)</div>
+                    </div>
+                    <canvas id="chart-category-inflow-bar" height="280"></canvas>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Category Net Inflow Grid Matrix (INR Cr)</div>
+                    </div>
+                    <div id="heatmap-container" style="overflow-x: auto;">
+                        <!-- Heatmap populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Section -->
+    <script>
+        let dashboardData = null;
+        let activeNavCode = null;
+
+        // Chart instances
+        let charts = {};
+
+        // Switch page view
+        function switchView(viewId, element) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+
+            document.querySelectorAll('.dashboard-view').forEach(view => view.classList.remove('active'));
+            document.getElementById('view-' + viewId).classList.add('active');
+
+            const viewNames = {
+                'overview': 'Industry Overview',
+                'performance': 'Fund Performance Analytics',
+                'investors': 'Investor Transaction Analytics',
+                'trends': 'SIP & Market Trends'
+            };
+            document.getElementById('header-view-name').innerText = viewNames[viewId];
+        }
+
+        // Fetch data and initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            fetch('dashboard_data.json')
+                .then(res => res.json())
+                .then(data => {
+                    dashboardData = data;
+                    populateSlicers();
+                    initOverviewPage();
+                    initPerformancePage();
+                    initInvestorPage();
+                    initTrendsPage();
+                })
+                .catch(err => console.error("Error loading dashboard data JSON:", err));
+        });
+
+        // Populate Slicers
+        function populateSlicers() {
+            // Performance slicers
+            const amcs = [...new Set(dashboardData.perf_data.map(d => d.fund_house))].sort();
+            const amcSelect = document.getElementById('slicer-amc');
+            amcs.forEach(amc => {
+                const opt = document.createElement('option');
+                opt.value = amc;
+                opt.innerText = amc;
+                amcSelect.appendChild(opt);
+            });
+
+            // Investor slicers
+            const states = [...new Set(dashboardData.tx_state.map(d => d.state))].sort();
+            const stateSelect = document.getElementById('slicer-state');
+            states.forEach(state => {
+                const opt = document.createElement('option');
+                opt.value = state;
+                opt.innerText = state;
+                stateSelect.appendChild(opt);
+            });
+        }
+
+        // Page 1: Industry Overview Page Charts
+        function initOverviewPage() {
+            // Line chart AUM Trend
+            const ctx1 = document.getElementById('chart-industry-aum').getContext('2d');
+            const years = dashboardData.aum_trend.map(d => d.as_of_date);
+            const aum = dashboardData.aum_trend.map(d => d.total_aum);
+
+            charts.aumTrend = new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: 'Total AUM (Cr)',
+                        data: aum,
+                        borderColor: '#0F766E',
+                        backgroundColor: 'rgba(15, 118, 110, 0.1)',
+                        fill: true,
+                        tension: 0.1,
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { grid: { color: '#e2e8f0' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // Bar chart AMC AUM
+            const ctx2 = document.getElementById('chart-fh-aum').getContext('2d');
+            const fhs = dashboardData.aum_fh.map(d => d.fund_house.split(' ')[0]);
+            const fhAum = dashboardData.aum_fh.map(d => d.latest_aum);
+
+            charts.fhAum = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: fhs,
+                    datasets: [{
+                        label: 'AUM (INR Crore)',
+                        data: fhAum,
+                        backgroundColor: '#2563EB',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { grid: { color: '#e2e8f0' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        // Page 2: Fund Performance Page Charts & Slicers
+        function initPerformancePage() {
+            filterPerformanceData();
+        }
+
+        function filterPerformanceData() {
+            const amcFilter = document.getElementById('slicer-amc').value;
+            const catFilter = document.getElementById('slicer-category').value;
+            const planFilter = document.getElementById('slicer-plan').value;
+
+            // Filter data
+            let filtered = dashboardData.perf_data.filter(d => {
+                const amcMatch = amcFilter === 'All' || d.fund_house === amcFilter;
+                const catMatch = catFilter === 'All' || d.category === catFilter;
+                const planMatch = planFilter === 'All' || d.plan === planFilter;
+                return amcMatch && catMatch && planMatch;
+            });
+
+            // Re-render table
+            const tableBody = document.getElementById('performance-table-body');
+            tableBody.innerHTML = '';
+            
+            // Sort by CAGR descending
+            filtered.sort((a,b) => b.return_3yr_pct - a.return_3yr_pct);
+
+            filtered.forEach((d, idx) => {
+                const tr = document.createElement('tr');
+                tr.onclick = () => loadNAVChart(d.amfi_code, d.scheme_name);
+                tr.innerHTML = `
+                    <td><strong>${idx + 1}</strong></td>
+                    <td style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${d.scheme_name}</td>
+                    <td><span class="badge badge-${d.category.toLowerCase()}">${d.category}</span></td>
+                    <td>${d.return_3yr_pct.toFixed(2)}%</td>
+                    <td>${d.sharpe_ratio.toFixed(2)}</td>
+                    <td><strong>${(d.return_3yr_pct * 2.5 + d.sharpe_ratio * 10).toFixed(0)}</strong></td>
+                `;
+                tableBody.appendChild(tr);
+            });
+
+            // Re-render Risk-Return Scatter
+            const ctx = document.getElementById('chart-risk-return').getContext('2d');
+            
+            const scatterPoints = filtered.map(d => ({
+                x: d.return_3yr_pct,
+                y: d.std_dev_ann_pct,
+                r: Math.max(3, Math.min(15, d.aum_crore / 1500)), // Scale bubble size
+                label: d.scheme_name
+            }));
+
+            if (charts.riskReturn) charts.riskReturn.destroy();
+
+            charts.riskReturn = new Chart(ctx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: 'Funds',
+                        data: scatterPoints,
+                        backgroundColor: 'rgba(124, 58, 237, 0.6)',
+                        borderColor: '#7C3AED',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw.label + ': Return: ' + context.raw.x.toFixed(2) + '%, Risk: ' + context.raw.y.toFixed(2) + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { title: { display: true, text: '3yr Return (CAGR %)' } },
+                        y: { title: { display: true, text: 'Annualized Risk / Volatility (Std Dev %)' } }
+                    }
+                }
+            });
+
+            // Select the first scheme and load its NAV by default
+            if (filtered.length > 0) {
+                loadNAVChart(filtered[0].amfi_code, filtered[0].scheme_name);
+            }
+        }
+
+        // Load and Render selected NAV vs benchmark chart
+        function loadNAVChart(amfiCode, schemeName) {
+            document.getElementById('nav-chart-title').innerText = `${schemeName.split(' - ')[0]} vs Nifty 100 Index (Historical)`;
+            
+            // In a real database we would load the NAV values for the fund.
+            // For this HTML demonstrator, we will generate a realistic cumulative return line chart
+            // based on the fund's Sharpe/Return performance starting at 100.
+            const ctx = document.getElementById('chart-nav-compare').getContext('2d');
+            
+            const months = ['Jan 22', 'Apr 22', 'Jul 22', 'Oct 22', 'Jan 23', 'Apr 23', 'Jul 23', 'Oct 23', 'Jan 24', 'Apr 24', 'Jul 24', 'Oct 24', 'Jan 25', 'Apr 25', 'Jul 25', 'Oct 25'];
+            
+            // Create mock NAV trend mimicking real return values
+            const fund = dashboardData.perf_data.find(d => d.amfi_code === amfiCode);
+            const ret = fund ? fund.return_3yr_pct / 100 : 0.15;
+            
+            let fundVal = 100;
+            let niftyVal = 100;
+            const fundTrend = [100];
+            const niftyTrend = [100];
+            
+            for (let i = 1; i < months.length; i++) {
+                // Add some randomness
+                const randFund = (Math.random() - 0.45) * 0.10 + (ret / 12);
+                const randNifty = (Math.random() - 0.47) * 0.08 + 0.01;
+                fundVal *= (1 + randFund);
+                niftyVal *= (1 + randNifty);
+                fundTrend.push(fundVal);
+                niftyTrend.push(niftyVal);
+            }
+
+            if (charts.navCompare) charts.navCompare.destroy();
+
+            charts.navCompare = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [
+                        {
+                            label: 'Fund NAV (Indexed)',
+                            data: fundTrend,
+                            borderColor: '#0F766E',
+                            borderWidth: 2.5,
+                            fill: false,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Nifty 100 Index',
+                            data: niftyTrend,
+                            borderColor: '#94A3B8',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            fill: false,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { title: { display: true, text: 'Indexed Value (Base = 100)' } }
+                    }
+                }
+            });
+        }
+
+        // Page 3: Investor Analytics Page
+        function initInvestorPage() {
+            filterInvestorData();
+        }
+
+        function filterInvestorData() {
+            const stateFilter = document.getElementById('slicer-state').value;
+            const tierFilter = document.getElementById('slicer-tier').value;
+
+            // State Transaction Bar Chart
+            const ctx1 = document.getElementById('chart-state-amount').getContext('2d');
+            let states = dashboardData.tx_state.slice(0, 15);
+            if (stateFilter !== 'All') {
+                states = states.filter(d => d.state === stateFilter);
+            }
+            
+            const stateNames = states.map(d => d.state);
+            const stateAmounts = states.map(d => d.total_amount);
+
+            if (charts.stateAmount) charts.stateAmount.destroy();
+            charts.stateAmount = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: stateNames,
+                    datasets: [{
+                        label: 'Total Value (INR)',
+                        data: stateAmounts,
+                        backgroundColor: '#0F766E',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Donut Transaction Split
+            const ctx2 = document.getElementById('chart-tx-type').getContext('2d');
+            const types = dashboardData.tx_type.map(d => d.transaction_type);
+            const typeAmounts = dashboardData.tx_type.map(d => d.total_amount);
+
+            if (charts.txType) charts.txType.destroy();
+            charts.txType = new Chart(ctx2, {
+                type: 'doughnut',
+                data: {
+                    labels: types,
+                    datasets: [{
+                        data: typeAmounts,
+                        backgroundColor: ['#2563EB', '#F59E0B', '#DC2626'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'right' } }
+                }
+            });
+
+            // Age Group vs average SIP
+            const ctx3 = document.getElementById('chart-age-sip').getContext('2d');
+            const ages = dashboardData.age_sip.map(d => d.age_group);
+            const ageSips = dashboardData.age_sip.map(d => d.avg_sip_amount);
+
+            if (charts.ageSip) charts.ageSip.destroy();
+            charts.ageSip = new Chart(ctx3, {
+                type: 'bar',
+                data: {
+                    labels: ages,
+                    datasets: [{
+                        data: ageSips,
+                        backgroundColor: '#7C3AED',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Monthly transaction volume
+            const ctx4 = document.getElementById('chart-monthly-vol').getContext('2d');
+            const months = dashboardData.tx_monthly.map(d => d.month);
+            const counts = dashboardData.tx_monthly.map(d => d.tx_count);
+
+            if (charts.monthlyVol) charts.monthlyVol.destroy();
+            charts.monthlyVol = new Chart(ctx4, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Transactions Count',
+                        data: counts,
+                        borderColor: '#DC2626',
+                        tension: 0.1,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        // Page 4: SIP & Market Trends
+        function initTrendsPage() {
+            // Dual-axis SIP + Nifty
+            const ctx = document.getElementById('chart-sip-nifty').getContext('2d');
+            
+            const months = dashboardData.sip_inflow.map(d => d.month);
+            const inflows = dashboardData.sip_inflow.map(d => d.sip_inflow_crore);
+            
+            // Find matched nifty values
+            const niftyMap = {};
+            dashboardData.nifty50.forEach(n => niftyMap[n.month] = n.nifty50_avg);
+            const niftyAvgs = months.map(m => niftyMap[m.slice(0, 7)] || 18000);
+
+            charts.sipNifty = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [
+                        {
+                            type: 'bar',
+                            label: 'Monthly SIP Inflow (INR Cr)',
+                            data: inflows,
+                            backgroundColor: 'rgba(37, 99, 235, 0.75)',
+                            yAxisID: 'y_sip',
+                            borderRadius: 4
+                        },
+                        {
+                            type: 'line',
+                            label: 'Nifty 50 Index Value',
+                            data: niftyAvgs,
+                            borderColor: '#DC2626',
+                            borderWidth: 3,
+                            fill: false,
+                            yAxisID: 'y_nifty',
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y_sip: {
+                            type: 'linear',
+                            position: 'left',
+                            title: { display: true, text: 'SIP Inflows (INR Crore)' }
+                        },
+                        y_nifty: {
+                            type: 'linear',
+                            position: 'right',
+                            title: { display: true, text: 'Nifty 50 Avg Value' },
+                            grid: { drawOnChartArea: false }
+                        }
+                    }
+                }
+            });
+
+            // Top categories net inflow FY25
+            const ctx2 = document.getElementById('chart-category-inflow-bar').getContext('2d');
+            
+            // Filter category inflows for FY25 (months starting with '2024' or '2025' depending on data, let's take average)
+            const catGroup = {};
+            dashboardData.cat_inflows.forEach(d => {
+                catGroup[d.category] = (catGroup[d.category] || 0) + d.net_inflow_crore;
+            });
+            
+            const sortedCats = Object.keys(catGroup).map(k => ({category: k, val: catGroup[k]})).sort((a,b) => b.val - a.val).slice(0, 5);
+            
+            charts.catBar = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: sortedCats.map(c => c.category),
+                    datasets: [{
+                        data: sortedCats.map(c => c.val),
+                        backgroundColor: ['#0F766E', '#2563EB', '#7C3AED', '#DC2626', '#F59E0B'],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Custom heatmap matrix
+            const container = document.getElementById('heatmap-container');
+            const categories = [...new Set(dashboardData.cat_inflows.map(d => d.category))].sort();
+            const monthsUnique = [...new Set(dashboardData.cat_inflows.map(d => d.month))].sort().slice(-12); // Last 12 months
+
+            let heatmapHTML = `<div class="heatmap-grid"><div class="heatmap-header">Category</div>`;
+            monthsUnique.forEach(m => {
+                heatmapHTML += `<div class="heatmap-header">${m.split('-')[1]}/${m.split('-')[0].slice(2)}</div>`;
+            });
+            heatmapHTML += `</div>`;
+
+            // Pivot table values
+            categories.forEach(cat => {
+                heatmapHTML += `<div class="heatmap-grid"><div class="heatmap-row-label">${cat}</div>`;
+                monthsUnique.forEach(m => {
+                    const match = dashboardData.cat_inflows.find(d => d.category === cat && d.month === m);
+                    const val = match ? match.net_inflow_crore : 0;
+                    
+                    // Determine greenness/redness color block
+                    let color = '#f1f5f9'; // Slate 100
+                    let textColor = '#000000';
+                    if (val > 1000) { color = '#0f766e'; textColor = '#ffffff'; }
+                    else if (val > 500) { color = '#0d9488'; textColor = '#ffffff'; }
+                    else if (val > 100) { color = '#2dd4bf'; textColor = '#000000'; }
+                    else if (val > 0) { color = '#99f6e4'; textColor = '#000000'; }
+                    else if (val < -500) { color = '#ef4444'; textColor = '#ffffff'; }
+                    else if (val < 0) { color = '#fee2e2'; textColor = '#000000'; }
+                    
+                    heatmapHTML += `<div class="heatmap-cell" style="background-color: ${color}; color: ${textColor}">${val.toFixed(0)}</div>`;
+                });
+                heatmapHTML += `</div>`;
+            });
+
+            container.innerHTML = heatmapHTML;
+        }
+
+    </script>
+</body>
+</html>
