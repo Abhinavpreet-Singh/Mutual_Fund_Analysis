@@ -5,7 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![Pandas](https://img.shields.io/badge/Pandas-2.2-green?logo=pandas)
 ![SQLite](https://img.shields.io/badge/SQLite-3-lightgrey?logo=sqlite)
-![Status](https://img.shields.io/badge/Day-1%20Complete-brightgreen)
+![Status](https://img.shields.io/badge/Day-6%20Complete-brightgreen)
 
 ---
 
@@ -46,19 +46,25 @@ Mutual_Fund_Analysis/
 ├── notebooks/
 │   ├── day1_eda_fund_master.ipynb
 │   ├── EDA_Analysis.ipynb
-│   └── Performance_Analytics.ipynb
+│   ├── Performance_Analytics.ipynb
+│   └── Advanced_Analytics.ipynb # Day 6 Advanced Risk and Cohort Analytics
 ├── sql/                        # SQL schema & queries (Day 2)
-├── dashboard/                  # Power BI / Tableau files (Day 5)
+├── dashboard/                  # Power BI / HTML dashboard (Day 5)
 ├── reports/                    # Generated charts & text reports
 │   ├── day3_charts/
-│   └── day4/                   # Day 4 Fund Performance Analytics reports & charts
+│   ├── day4/                   # Day 4 Fund Performance Analytics reports & charts
+│   └── day6/                   # Day 6 Advanced Analytics reports & charts
 ├── data_ingestion.py           # Task 3: Load all 10 CSVs
 ├── clean_data.py               # Day 2: Dataset-specific cleaning and validation
 ├── live_nav_fetch.py           # Tasks 4 & 5: Fetch live NAV from mfapi.in
 ├── build_day2_sqlite.py        # Day 2: Build SQLite DB and run queries
 ├── run_performance_analytics.py # Day 4: Performance analytics pipeline
+├── run_advanced_analytics.py   # Day 6: Advanced analytics and risk metrics pipeline
+├── recommender.py              # Day 6: CLI Fund Recommendation System
 ├── validate_amfi_codes.py      # Task 7: AMFI code validation
 ├── data_dictionary.md          # Day 2: Column-level data dictionary
+├── var_cvar_report.csv         # Day 6: Fund Value-at-Risk outputs
+├── rolling_sharpe_chart.png    # Day 6: Volatility of Sharpe ratios plot
 ├── requirements.txt
 └── README.md
 ```
@@ -121,6 +127,8 @@ jupyter notebook notebooks/day1_eda_fund_master.ipynb
   `sql/queries.sql`, `reports/day2_query_results.md`, and
   `reports/day2_summary.md`.
 - `python run_performance_analytics.py` calculates performance metrics and saves CSV files and charts in `reports/day4/`, updating `database/bluestock_mf.db`.
+- `python run_advanced_analytics.py` calculates Advanced Analytics and Risk Metrics, generating reports in `reports/day6/`, plotting charts, and saving key deliverables to the root directory.
+- `python recommender.py [Low/Moderate/High]` matches a user's risk appetite with the top 3 mutual funds ranked by Sharpe ratio.
 - `python live_nav_fetch.py` writes the fetched NAV CSVs into `data/raw/`.
 - `python validate_amfi_codes.py` writes `reports/data_quality_report.txt`.
 - Open `notebooks/day1_eda_fund_master.ipynb` and run the cells top to bottom to
@@ -142,7 +150,7 @@ jupyter notebook notebooks/day1_eda_fund_master.ipynb
 | **Day 3** | Exploratory Data Analysis (EDA)      | ✅ Complete     |
 | **Day 4** | Fund Performance Analytics           | ✅ Complete     |
 | **Day 5** | Dashboard Development                | ✅ Complete     |
-| **Day 6** | Advanced Analytics + Risk Metrics    | 🔲 Pending     |
+| **Day 6** | Advanced Analytics + Risk Metrics    | ✅ Complete    |
 | **Day 7** | Final Report + Presentation          | 🔲 Pending     |
 
 ---
