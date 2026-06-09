@@ -84,10 +84,50 @@ st.markdown("""
         margin-bottom: 0.4rem !important;
     }
     
+    /* Global font override for Times New Roman */
+    html, body, [data-testid="stAppViewContainer"], [data-testid="stHeader"], [data-testid="stSidebar"], .stText, .stMarkdown, button, select, input, label, textarea, table, td, th {
+        font-family: 'Times New Roman', Times, serif !important;
+    }
+    
+    /* Force Plotly SVG text nodes to render in Times New Roman */
+    .js-plotly-plot text, .js-plotly-plot tspan {
+        font-family: 'Times New Roman', Times, serif !important;
+    }
+    
     /* Headers styling */
     h1, h2, h3 {
         color: #0f172a !important;
-        font-family: 'Inter', sans-serif !important;
+        font-family: 'Times New Roman', Times, serif !important;
+    }
+    
+    /* Compact Sidebar Styling to prevent vertical scrollbars on 100% zoom */
+    section[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
+        padding-top: 0.2rem !important;
+        margin-top: -2rem !important; /* Pull contents upward to reclaim top whitespace */
+        padding-bottom: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    section[data-testid="stSidebar"] div[role="radiogroup"] label {
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
+        margin-bottom: 2px !important;
+    }
+    section[data-testid="stSidebar"] div[role="radiogroup"] label p {
+        font-size: 13px !important;
+    }
+    section[data-testid="stSidebar"] h3 {
+        font-size: 1.05rem !important;
+        margin-top: 0px !important;
+        margin-bottom: 4px !important;
+    }
+    section[data-testid="stSidebar"] hr {
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+    }
+    section[data-testid="stSidebar"] p, section[data-testid="stSidebar"] span {
+        font-size: 11px !important;
+        margin-bottom: 2px !important;
     }
     </style>
 """, unsafe_allow_html=True)
