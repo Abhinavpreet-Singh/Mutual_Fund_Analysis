@@ -433,7 +433,7 @@ elif selected_page == "Fund Performance":
             "Beta": "{:.2f}",
             "Max Drawdown (%)": "{:.2f}%",
             "Expense Ratio (%)": "{:.2f}%"
-        }), width="stretch", hide_index=True)
+        }), use_container_width=True, hide_index=True)
     else:
         st.info("No matching schemes found.")
         
@@ -1011,7 +1011,7 @@ elif selected_page == "Portfolio Optimization":
             "MVP Allocation (%)": [w * 100 for w in mvp_weights],
             "Custom Allocation (%)": [w * 100 for w in custom_weights] if custom_ready else ["-"] * 5
         }
-        st.dataframe(pd.DataFrame(alloc_data).set_index("Mutual Fund"), width="stretch")
+        st.dataframe(pd.DataFrame(alloc_data).set_index("Mutual Fund"), use_container_width=True)
         
         # Efficient Frontier Plotly Chart
         st.subheader("Efficient Frontier Scatter Plot")
