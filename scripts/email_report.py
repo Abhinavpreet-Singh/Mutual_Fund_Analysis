@@ -402,9 +402,9 @@ def main():
         
     # Send email
     env = load_env_variables()
-    api_key = env.get("RESEND_API_KEY")
-    receiver = env.get("EMAIL_RECEIVER")
-    sender = env.get("EMAIL_SENDER")
+    api_key = env.get("RESEND_API_KEY", "")
+    receiver = env.get("EMAIL_RECEIVER", "")
+    sender = env.get("EMAIL_SENDER", "onboarding@resend.dev")
     
     if not api_key:
         print("\n[WARNING] RESEND_API_KEY not found in .env or OS environment.")
