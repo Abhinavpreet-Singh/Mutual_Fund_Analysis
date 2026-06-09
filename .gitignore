@@ -27,6 +27,7 @@ data/processed/*.sqlite
 
 # Database files
 *.db
+!database/bluestock_mf.db
 *.sqlite
 *.sqlite3
 
