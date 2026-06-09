@@ -96,6 +96,11 @@ def main():
         print("\n[FATAL] Metrics Analytics failed. Aborting pipeline execution.", file=sys.stderr)
         sys.exit(1)
         
+    # Step 5: Run Monte Carlo Simulation Engine
+    success = run_script("monte_carlo.py")
+    if not success:
+        print("\n[WARNING] Monte Carlo simulation failed. Continuing execution...")
+        
     elapsed = time.time() - pipeline_start
     print("\n" + DIVIDER)
     print(f"      PIPELINE EXECUTION COMPLETED IN {elapsed:.2f} SECONDS")

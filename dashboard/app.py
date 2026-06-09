@@ -77,7 +77,8 @@ pages = [
     "Industry Overview",
     "Fund Performance",
     "Investor Analytics",
-    "SIP & Market Trends"
+    "SIP & Market Trends",
+    "NAV Forecast (Monte Carlo)"
 ]
 selected_page = st.sidebar.radio("Navigation Menu", pages)
 
@@ -559,3 +560,213 @@ elif selected_page == "SIP & Market Trends":
             st.info("No category inflow aggregation available.")
             
     conn.close()
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# PAGE 5: NAV Forecast (Monte Carlo)
+# ──────────────────────────────────────────────────────────────────────────────
+elif selected_page == "NAV Forecast (Monte Carlo)":
+    st.title("NAV Growth Projections (Monte Carlo)")
+    st.markdown("Estimate future mutual fund NAV paths and evaluate downside risks using a geometric Brownian motion simulation based on historical return volatility.")
+
+    conn = get_connection()
+    # Fetch available funds
+    funds_df = pd.read_sql_query("SELECT amfi_code, scheme_name FROM dim_fund ORDER BY scheme_name", conn)
+    
+    if funds_df.empty:
+        st.error("No funds found in the database. Please check database ingestion.")
+        conn.close()
+        st.stop()
+        
+    fund_options = {row["scheme_name"]: int(row["amfi_code"]) for _, row in funds_df.iterrows()}
+    
+    # Selection Controls
+    col_sel1, col_sel2, col_sel3 = st.columns([2, 1, 1])
+    with col_sel1:
+        selected_fund_name = st.selectbox("Select Mutual Fund", list(fund_options.keys()))
+        selected_code = fund_options[selected_fund_name]
+    with col_sel2:
+        n_sim = st.slider("Simulation Paths (Trials)", min_value=100, max_value=5000, value=1000, step=100)
+    with col_sel3:
+        years = st.slider("Horizon (Years)", min_value=1, max_value=10, value=5, step=1)
+        
+    # Fetch historical NAVs
+    nav_query = """
+        SELECT nav_date, nav
+        FROM fact_nav
+        WHERE amfi_code = ?
+        ORDER BY nav_date ASC
+    """
+    hist_df = pd.read_sql_query(nav_query, conn, params=(selected_code,))
+    conn.close()
+    
+    if len(hist_df) < 30:
+        st.warning("Insufficient historical daily NAV observations for this scheme to construct simulation parameters.")
+    else:
+        hist_df["nav_date"] = pd.to_datetime(hist_df["nav_date"])
+        hist_df = hist_df.sort_values("nav_date").reset_index(drop=True)
+        
+        # Log returns computation
+        hist_df["log_return"] = np.log(hist_df["nav"] / hist_df["nav"].shift(1))
+        log_returns = hist_df["log_return"].dropna()
+        
+        mu = log_returns.mean()
+        sigma = log_returns.std()
+        latest_nav = hist_df["nav"].iloc[-1]
+        latest_date = hist_df["nav_date"].iloc[-1]
+        
+        # Simulate Paths
+        trading_days = int(years * 252)
+        
+        # Seed for consistent presentation
+        np.random.seed(42)
+        daily_shocks = np.random.normal(loc=mu, scale=sigma, size=(trading_days, n_sim))
+        
+        # Calculate daily path returns
+        path_returns = np.vstack([np.zeros(n_sim), daily_shocks])
+        cum_returns = np.exp(np.cumsum(path_returns, axis=0))
+        nav_paths = latest_nav * cum_returns
+        
+        # Calculate percentiles
+        percentiles = [5, 25, 50, 75, 95]
+        pct_values = np.percentile(nav_paths, percentiles, axis=1)
+        
+        # Projection dates
+        proj_dates = pd.date_range(start=latest_date + pd.Timedelta(days=1), periods=trading_days, freq="B")
+        proj_dates = [latest_date] + list(proj_dates)
+        
+        # Create DataFrames
+        proj_df = pd.DataFrame({
+            "date": proj_dates,
+            "p5": pct_values[0],
+            "p25": pct_values[1],
+            "p50": pct_values[2],
+            "p75": pct_values[3],
+            "p95": pct_values[4]
+        })
+        
+        # Metrics
+        final_navs = nav_paths[-1, :]
+        expected_cagr = ((np.mean(final_navs) / latest_nav) ** (1 / years) - 1) * 100
+        prob_positive = np.mean(final_navs > latest_nav) * 100
+        median_final_nav = np.median(final_navs)
+        worst_case_nav = pct_values[0][-1]
+        best_case_nav = pct_values[4][-1]
+        ann_vol = sigma * np.sqrt(252) * 100
+        
+        # Metrics scorecard
+        st.markdown("### Simulation Summary Scorecard")
+        col_m1, col_m2, col_m3, col_m4 = st.columns(4)
+        
+        with col_m1:
+            st.markdown(f"""
+                <div class="metric-card">
+                    <div class="metric-title">Current NAV</div>
+                    <div class="metric-value">₹{latest_nav:,.2f}</div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">As of {latest_date.strftime('%d %b %Y')}</div>
+                </div>
+            """, unsafe_allow_html=True)
+            
+        with col_m2:
+            st.markdown(f"""
+                <div class="metric-card">
+                    <div class="metric-title">Projected Median NAV</div>
+                    <div class="metric-value">₹{median_final_nav:,.2f}</div>
+                    <div style="font-size: 12px; color: #10b981; margin-top: 4px;">Expected CAGR: {expected_cagr:.2f}%</div>
+                </div>
+            """, unsafe_allow_html=True)
+            
+        with col_m3:
+            st.markdown(f"""
+                <div class="metric-card">
+                    <div class="metric-title">Downside Risk (p5)</div>
+                    <div class="metric-value" style="color: #dc2626;">₹{worst_case_nav:,.2f}</div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">5% Probability Worst Case</div>
+                </div>
+            """, unsafe_allow_html=True)
+            
+        with col_m4:
+            st.markdown(f"""
+                <div class="metric-card">
+                    <div class="metric-title">Upside Potential (p95)</div>
+                    <div class="metric-value" style="color: #0f766e;">₹{best_case_nav:,.2f}</div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Historical Daily Vol: {ann_vol:.2f}%</div>
+                </div>
+            """, unsafe_allow_html=True)
+            
+        # Plotly chart
+        st.subheader("Interactive Projected NAV Growth Path & Uncertainty Bands")
+        
+        fig_mc = go.Figure()
+        
+        # Historical NAV (last 1 year for cleaner view)
+        hist_subset = hist_df.tail(252)
+        fig_mc.add_trace(go.Scatter(
+            x=hist_subset["nav_date"],
+            y=hist_subset["nav"],
+            name="Historical NAV",
+            line=dict(color="#0F766E", width=2.5)
+        ))
+        
+        # Projected Median p50
+        fig_mc.add_trace(go.Scatter(
+            x=proj_df["date"],
+            y=proj_df["p50"],
+            name="Projected Median (p50)",
+            line=dict(color="#2563EB", width=2.5)
+        ))
+        
+        # p25 to p75 (IQR)
+        fig_mc.add_trace(go.Scatter(
+            x=proj_df["date"],
+            y=proj_df["p75"],
+            line=dict(width=0),
+            showlegend=False,
+            hoverinfo="skip"
+        ))
+        fig_mc.add_trace(go.Scatter(
+            x=proj_df["date"],
+            y=proj_df["p25"],
+            fill="tonexty",
+            fillcolor="rgba(37, 99, 235, 0.15)",
+            name="Interquartile Range (p25-p75)",
+            line=dict(width=0),
+            hoverinfo="skip"
+        ))
+        
+        # p5 to p95 (90% CI)
+        fig_mc.add_trace(go.Scatter(
+            x=proj_df["date"],
+            y=proj_df["p95"],
+            line=dict(width=0),
+            showlegend=False,
+            hoverinfo="skip"
+        ))
+        fig_mc.add_trace(go.Scatter(
+            x=proj_df["date"],
+            y=proj_df["p5"],
+            fill="tonexty",
+            fillcolor="rgba(37, 99, 235, 0.06)",
+            name="90% Confidence Interval (p5-p95)",
+            line=dict(width=0),
+            hoverinfo="skip"
+        ))
+        
+        fig_mc.update_layout(
+            height=500,
+            xaxis_title="Date",
+            yaxis_title="NAV (INR)",
+            margin=dict(t=20, b=20, l=40, r=40),
+            legend=dict(x=0.01, y=0.98, bgcolor="rgba(255,255,255,0.8)", bordercolor="#e2e8f0", borderwidth=1),
+            hovermode="x unified"
+        )
+        
+        st.plotly_chart(fig_mc, use_container_width=True)
+        
+        # Additional simulation metrics
+        col_sm1, col_sm2 = st.columns(2)
+        with col_sm1:
+            st.markdown(f"**Probability of Positive Return**: `{prob_positive:.2f}%` of trials ended above the current NAV.")
+        with col_sm2:
+            st.markdown(f"**Expected Final NAV (Mean of Trials)**: `₹{np.mean(final_navs):,.2f}`")
+
