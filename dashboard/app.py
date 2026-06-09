@@ -1059,25 +1059,25 @@ elif selected_page == "Reports & Alerts":
         
     with col_st2:
         st.subheader("Trigger Manual Dispatch")
-        recipient = st.text_input("Recipient Email Address", value=default_receiver, placeholder="e.g. investor@example.com")
-        
-        if st.button("Send HTML Report Now"):
-            if not api_key:
-                st.error("Cannot send email: Resend API Key is missing. Please configure it in your secrets or .env file.")
-            elif not recipient:
-                st.error("Please enter a valid recipient email address.")
-            else:
-                with st.spinner("Compiling database metrics and sending email..."):
-                    try:
-                        data = fetch_report_data()
-                        html_body = build_html_template(data)
-                        success = send_email(api_key, sender, recipient, html_body)
-                        if success:
-                            st.success(f"Report successfully sent to **{recipient}**!")
-                        else:
-                            st.error("Failed to send email. Please check your Resend API Key permissions and quota.")
-                    except Exception as ex:
-                        st.error(f"Error compiling report data: {ex}")
+        if not default_receiver:
+            st.warning("Recipient email is not configured. Please add `EMAIL_RECEIVER` to your Secrets/`.env` file.")
+        else:
+            st.info(f"**Target Recipient**: `{default_receiver}`")
+            if st.button("Send HTML Report Now"):
+                if not api_key:
+                    st.error("Cannot send email: Resend API Key is missing. Please configure it in your secrets or .env file.")
+                else:
+                    with st.spinner("Compiling database metrics and sending email..."):
+                        try:
+                            data = fetch_report_data()
+                            html_body = build_html_template(data)
+                            success = send_email(api_key, sender, default_receiver, html_body)
+                            if success:
+                                st.success(f"Report successfully sent to **{default_receiver}**!")
+                            else:
+                                st.error("Failed to send email. Please check your Resend API Key permissions and quota.")
+                        except Exception as ex:
+                            st.error(f"Error compiling report data: {ex}")
                         
     # Live preview section
     st.markdown("---")
