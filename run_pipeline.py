@@ -101,6 +101,11 @@ def main():
     if not success:
         print("\n[WARNING] Monte Carlo simulation failed. Continuing execution...")
         
+    # Step 6: Run Markowitz Portfolio Optimization
+    success = run_script("portfolio_optimization.py")
+    if not success:
+        print("\n[WARNING] Portfolio Optimization failed. Continuing execution...")
+        
     elapsed = time.time() - pipeline_start
     print("\n" + DIVIDER)
     print(f"      PIPELINE EXECUTION COMPLETED IN {elapsed:.2f} SECONDS")

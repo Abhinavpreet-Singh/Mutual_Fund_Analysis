@@ -78,7 +78,9 @@ pages = [
     "Fund Performance",
     "Investor Analytics",
     "SIP & Market Trends",
-    "NAV Forecast (Monte Carlo)"
+    "NAV Forecast (Monte Carlo)",
+    "Portfolio Optimization",
+    "Reports & Alerts"
 ]
 selected_page = st.sidebar.radio("Navigation Menu", pages)
 
@@ -769,4 +771,320 @@ elif selected_page == "NAV Forecast (Monte Carlo)":
             st.markdown(f"**Probability of Positive Return**: `{prob_positive:.2f}%` of trials ended above the current NAV.")
         with col_sm2:
             st.markdown(f"**Expected Final NAV (Mean of Trials)**: `₹{np.mean(final_navs):,.2f}`")
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# PAGE 6: Portfolio Optimization (Markowitz)
+# ──────────────────────────────────────────────────────────────────────────────
+elif selected_page == "Portfolio Optimization":
+    st.title("Portfolio Optimization (Markowitz Efficient Frontier)")
+    st.markdown("Optimize asset allocation across 5 selected mutual funds to maximize risk-adjusted returns or minimize volatility.")
+    
+    conn = get_connection()
+    selected_codes = [148567, 120505, 120843, 100033, 120504]
+    placeholders = ",".join("?" for _ in selected_codes)
+    
+    # Fetch names
+    names_df = pd.read_sql_query(
+        f"SELECT amfi_code, scheme_name FROM dim_fund WHERE amfi_code IN ({placeholders})", 
+        conn, 
+        params=selected_codes
+    )
+    fund_names = dict(zip(names_df["amfi_code"], names_df["scheme_name"]))
+    clean_names = {code: name.split(" - ")[0] for code, name in fund_names.items()}
+    
+    # Fetch returns
+    query = f"""
+        SELECT nav_date as date, amfi_code, daily_return
+        FROM fact_nav
+        WHERE amfi_code IN ({placeholders})
+        AND daily_return IS NOT NULL
+        ORDER BY nav_date ASC
+    """
+    df = pd.read_sql_query(query, conn, params=selected_codes)
+    conn.close()
+    
+    if df.empty:
+        st.error("No daily returns data available for portfolio optimization.")
+        st.stop()
+        
+    returns_df = df.pivot(index="date", columns="amfi_code", values="daily_return").dropna()
+    
+    if len(returns_df) < 30:
+        st.warning("Insufficient daily return observations to construct efficient frontier parameters.")
+    else:
+        # Optimization Parameters
+        mean_returns = returns_df.mean()
+        cov_matrix = returns_df.cov()
+        ann_returns = mean_returns * 252
+        ann_cov = cov_matrix * 252
+        
+        rf_rate = 0.065 # 6.5% Risk Free Rate
+        
+        # Simulate Portfolios (for the Efficient Frontier plot)
+        num_portfolios = 2000
+        np.random.seed(42)
+        
+        num_assets = len(selected_codes)
+        results = np.zeros((3 + num_assets, num_portfolios))
+        
+        for i in range(num_portfolios):
+            weights = np.random.random(num_assets)
+            weights /= np.sum(weights)
+            
+            p_return = np.dot(weights, ann_returns)
+            p_volatility = np.sqrt(np.dot(weights.T, np.dot(ann_cov, weights)))
+            p_sharpe = (p_return - rf_rate) / p_volatility if p_volatility > 0 else 0
+            
+            results[0, i] = p_return
+            results[1, i] = p_volatility
+            results[2, i] = p_sharpe
+            for j in range(num_assets):
+                results[3 + j, i] = weights[j]
+                
+        # Find MSR and MVP
+        msr_idx = np.argmax(results[2])
+        msr_weights = results[3:, msr_idx]
+        msr_return = results[0, msr_idx]
+        msr_vol = results[1, msr_idx]
+        msr_sharpe = results[2, msr_idx]
+        
+        mvp_idx = np.argmin(results[1])
+        mvp_weights = results[3:, mvp_idx]
+        mvp_return = results[0, mvp_idx]
+        mvp_vol = results[1, mvp_idx]
+        mvp_sharpe = results[2, mvp_idx]
+        
+        # Interactive Custom Allocation
+        st.subheader("Interactive Weight Allocator")
+        st.markdown("Adjust the allocation weights below to construct your custom portfolio and see where it lands on the Efficient Frontier.")
+        
+        cols_w = st.columns(5)
+        custom_weights = []
+        for idx, code in enumerate(selected_codes):
+            with cols_w[idx]:
+                name_short = clean_names[code]
+                weight_val = st.slider(f"{name_short}", min_value=0, max_value=100, value=20, step=5, key=f"w_{code}")
+                custom_weights.append(weight_val / 100.0)
+                
+        total_weight = sum(custom_weights)
+        st.markdown(f"**Total Weight Allocated**: `{total_weight * 100:.0f}%` (Must equal 100% to evaluate)")
+        
+        # Calculate custom portfolio metrics if weight equals 100%
+        custom_ready = np.isclose(total_weight, 1.0)
+        
+        if custom_ready:
+            custom_w = np.array(custom_weights)
+            custom_return = np.dot(custom_w, ann_returns)
+            custom_vol = np.sqrt(np.dot(custom_w.T, np.dot(ann_cov, custom_w)))
+            custom_sharpe = (custom_return - rf_rate) / custom_vol if custom_vol > 0 else 0
+        else:
+            custom_return = custom_vol = custom_sharpe = np.nan
+            
+        # Comparison Scorecards
+        col_c1, col_c2, col_c3 = st.columns(3)
+        
+        with col_c1:
+            st.markdown(f"""
+                <div class="metric-card" style="border-top: 4px solid #dc2626;">
+                    <div class="metric-title" style="color: #dc2626; font-weight: bold;">Max Sharpe Ratio (MSR)</div>
+                    <div class="metric-value">SR: {msr_sharpe:.2f}</div>
+                    <div style="font-size: 13px; color: #475569; margin-top: 4px;">
+                        Expected Return: {msr_return*100:.2f}%<br>
+                        Annualized Risk: {msr_vol*100:.2f}%
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+            
+        with col_c2:
+            st.markdown(f"""
+                <div class="metric-card" style="border-top: 4px solid #2563eb;">
+                    <div class="metric-title" style="color: #2563eb; font-weight: bold;">Minimum Volatility (MVP)</div>
+                    <div class="metric-value">Risk: {mvp_vol*100:.2f}%</div>
+                    <div style="font-size: 13px; color: #475569; margin-top: 4px;">
+                        Expected Return: {mvp_return*100:.2f}%<br>
+                        Sharpe Ratio: {mvp_sharpe:.2f}
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+            
+        with col_c3:
+            if custom_ready:
+                st.markdown(f"""
+                    <div class="metric-card" style="border-top: 4px solid #0f766e;">
+                        <div class="metric-title" style="color: #0f766e; font-weight: bold;">Your Custom Portfolio</div>
+                        <div class="metric-value">SR: {custom_sharpe:.2f}</div>
+                        <div style="font-size: 13px; color: #475569; margin-top: 4px;">
+                            Expected Return: {custom_return*100:.2f}%<br>
+                            Annualized Risk: {custom_vol*100:.2f}%
+                        </div>
+                    </div>
+                """, unsafe_allow_html=True)
+            else:
+                st.markdown(f"""
+                    <div class="metric-card" style="border-top: 4px solid #64748b; background-color: #f8fafc;">
+                        <div class="metric-title" style="color: #64748b; font-weight: bold;">Your Custom Portfolio</div>
+                        <div class="metric-value" style="color: #94a3b8; font-size: 20px; padding: 5px 0;">INCOMPLETE</div>
+                        <div style="font-size: 12px; color: #dc2626;">
+                            Weights must sum to 100%! Current: {total_weight*100:.0f}%
+                        </div>
+                    </div>
+                """, unsafe_allow_html=True)
+                
+        # Allocation details table
+        st.subheader("Allocation Breakdowns")
+        alloc_data = {
+            "Mutual Fund": [clean_names[code] for code in selected_codes],
+            "MSR Allocation (%)": [w * 100 for w in msr_weights],
+            "MVP Allocation (%)": [w * 100 for w in mvp_weights],
+            "Custom Allocation (%)": [w * 100 for w in custom_weights] if custom_ready else ["-"] * 5
+        }
+        st.dataframe(pd.DataFrame(alloc_data).set_index("Mutual Fund"), use_container_width=True)
+        
+        # Efficient Frontier Plotly Chart
+        st.subheader("Efficient Frontier Scatter Plot")
+        
+        fig_ef = go.Figure()
+        
+        # Simulated Portfolios
+        fig_ef.add_trace(go.Scatter(
+            x=results[1] * 100,
+            y=results[0] * 100,
+            mode='markers',
+            marker=dict(
+                size=4,
+                color=results[2],
+                colorscale='Viridis',
+                colorbar=dict(title="Sharpe Ratio"),
+                opacity=0.5
+            ),
+            name="Simulated Portfolios",
+            hovertemplate="Risk: %{x:.2f}%<br>Return: %{y:.2f}%<br>Sharpe: %{marker.color:.2f}<extra></extra>"
+        ))
+        
+        # Individual Assets
+        asset_risks = [np.sqrt(ann_cov.loc[code, code]) * 100 for code in selected_codes]
+        asset_returns = [ann_returns.loc[code] * 100 for code in selected_codes]
+        fig_ef.add_trace(go.Scatter(
+            x=asset_risks,
+            y=asset_returns,
+            mode='markers+text',
+            text=[clean_names[code] for code in selected_codes],
+            textposition="top center",
+            marker=dict(size=10, color='#0F766E', line=dict(width=1, color='black')),
+            name="Individual Funds",
+            hovertemplate="%{text}<br>Risk: %{x:.2f}%<br>Return: %{y:.2f}%<extra></extra>"
+        ))
+        
+        # MSR Marker
+        fig_ef.add_trace(go.Scatter(
+            x=[msr_vol * 100],
+            y=[msr_return * 100],
+            mode='markers',
+            marker=dict(size=15, color='#DC2626', symbol='star', line=dict(width=1.5, color='black')),
+            name="Max Sharpe Ratio (MSR)",
+            hovertemplate="MSR Portfolio<br>Risk: %{x:.2f}%<br>Return: %{y:.2f}%<br>Sharpe: %{text}<extra></extra>",
+            text=[f"{msr_sharpe:.2f}"]
+        ))
+        
+        # MVP Marker
+        fig_ef.add_trace(go.Scatter(
+            x=[mvp_vol * 100],
+            y=[mvp_return * 100],
+            mode='markers',
+            marker=dict(size=12, color='#2563EB', symbol='diamond', line=dict(width=1.5, color='black')),
+            name="Min Volatility (MVP)",
+            hovertemplate="MVP Portfolio<br>Risk: %{x:.2f}%<br>Return: %{y:.2f}%<br>Sharpe: %{text}<extra></extra>",
+            text=[f"{mvp_sharpe:.2f}"]
+        ))
+        
+        # Custom Portfolio Marker
+        if custom_ready:
+            fig_ef.add_trace(go.Scatter(
+                x=[custom_vol * 100],
+                y=[custom_return * 100],
+                mode='markers',
+                marker=dict(size=14, color='#10B981', symbol='hexagon', line=dict(width=2, color='white')),
+                name="Your Custom Portfolio",
+                hovertemplate="Custom Portfolio<br>Risk: %{x:.2f}%<br>Return: %{y:.2f}%<br>Sharpe: %{text}<extra></extra>",
+                text=[f"{custom_sharpe:.2f}"]
+            ))
+            
+        fig_ef.update_layout(
+            xaxis_title="Annualized Volatility / Risk (%)",
+            yaxis_title="Annualized Expected Return (%)",
+            height=600,
+            margin=dict(t=20, b=20, l=40, r=40),
+            legend=dict(x=0.01, y=0.98, bgcolor="rgba(255,255,255,0.8)", bordercolor="#e2e8f0", borderwidth=1),
+            hovermode="closest"
+        )
+        
+        st.plotly_chart(fig_ef, use_container_width=True)
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# PAGE 7: Reports & Alerts
+# ──────────────────────────────────────────────────────────────────────────────
+elif selected_page == "Reports & Alerts":
+    st.title("Weekly Reports & Email Alerts")
+    st.markdown("Configure email report alerts and manually trigger weekly HTML summaries to your inbox using the Resend API.")
+    
+    # Check for API Key status
+    try:
+        from scripts.email_report import load_env_variables, fetch_report_data, build_html_template, send_email
+        env_vars = load_env_variables()
+    except Exception as e:
+        env_vars = {}
+        st.error(f"Failed to load email modules: {e}")
+        
+    # Also check Streamlit secrets
+    api_key = st.secrets.get("RESEND_API_KEY") or env_vars.get("RESEND_API_KEY")
+    sender = st.secrets.get("EMAIL_SENDER") or env_vars.get("EMAIL_SENDER") or "onboarding@resend.dev"
+    default_receiver = st.secrets.get("EMAIL_RECEIVER") or env_vars.get("EMAIL_RECEIVER") or ""
+    
+    col_st1, col_st2 = st.columns(2)
+    with col_st1:
+        st.subheader("System Configuration Status")
+        if api_key:
+            st.success("Resend API Key: Configured")
+        else:
+            st.warning("Resend API Key: Not Configured (Create a .env file or add to Streamlit Secrets)")
+            
+        st.info(f"**Default Sender Address**: `{sender}`")
+        
+    with col_st2:
+        st.subheader("Trigger Manual Dispatch")
+        recipient = st.text_input("Recipient Email Address", value=default_receiver, placeholder="e.g. investor@example.com")
+        
+        if st.button("Send HTML Report Now"):
+            if not api_key:
+                st.error("Cannot send email: Resend API Key is missing. Please configure it in your secrets or .env file.")
+            elif not recipient:
+                st.error("Please enter a valid recipient email address.")
+            else:
+                with st.spinner("Compiling database metrics and sending email..."):
+                    try:
+                        data = fetch_report_data()
+                        html_body = build_html_template(data)
+                        success = send_email(api_key, sender, recipient, html_body)
+                        if success:
+                            st.success(f"Report successfully sent to **{recipient}**!")
+                        else:
+                            st.error("Failed to send email. Please check your Resend API Key permissions and quota.")
+                    except Exception as ex:
+                        st.error(f"Error compiling report data: {ex}")
+                        
+    # Live preview section
+    st.markdown("---")
+    st.subheader("HTML Email Template Live Preview")
+    st.markdown("Below is a real-time preview of the responsive HTML email template sent to investors:")
+    
+    try:
+        import streamlit.components.v1 as components
+        data_preview = fetch_report_data()
+        html_preview = build_html_template(data_preview)
+        components.html(html_preview, height=600, scrolling=True)
+    except Exception as ex:
+        st.info("Run the ETL pipeline to populate database metrics for the preview.")
+
 

@@ -1,0 +1,253 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weekly Mutual Fund Performance Report</title>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                background-color: #f8fafc;
+                color: #0f172a;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                max-width: 680px;
+                margin: 30px auto;
+                background-color: #ffffff;
+                border-radius: 12px;
+                border: 1px solid #e2e8f0;
+                overflow: hidden;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            }
+            .header {
+                background-color: #0F766E;
+                color: #ffffff;
+                padding: 30px 40px;
+                text-align: left;
+            }
+            .content {
+                padding: 35px 40px;
+            }
+            .footer {
+                background-color: #f1f5f9;
+                border-top: 1px solid #e2e8f0;
+                padding: 20px 40px;
+                text-align: center;
+                font-size: 12px;
+                color: #64748b;
+            }
+            .kpi-container {
+                display: table;
+                width: 100%;
+                margin-bottom: 30px;
+                border-spacing: 12px 0;
+            }
+            .kpi-card {
+                display: table-cell;
+                width: 33.33%;
+                background-color: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 15px;
+                text-align: center;
+                vertical-align: top;
+            }
+            .kpi-value {
+                font-size: 20px;
+                font-weight: bold;
+                color: #0f172a;
+                margin-top: 4px;
+            }
+            .kpi-title {
+                font-size: 11px;
+                text-transform: uppercase;
+                color: #64748b;
+                letter-spacing: 0.5px;
+            }
+            .kpi-subtext {
+                font-size: 10px;
+                color: #94a3b8;
+                margin-top: 4px;
+            }
+            .section-title {
+                font-size: 16px;
+                font-weight: bold;
+                color: #0f172a;
+                border-bottom: 2px solid #f1f5f9;
+                padding-bottom: 8px;
+                margin-top: 30px;
+                margin-bottom: 15px;
+            }
+            .btn-dash {
+                display: inline-block;
+                background-color: #0F766E;
+                color: #ffffff !important;
+                text-decoration: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 14px;
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div style="font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #a5f3fc; margin-bottom: 5px;">Bluestock Fintech</div>
+                <h1 style="margin: 0; font-size: 24px; font-weight: 800; line-height: 1.2;">Weekly Mutual Fund Analytics Summary</h1>
+                <div style="font-size: 13px; color: #e2f8f6; margin-top: 6px;">Automated performance & risk overview for top Indian schemes</div>
+            </div>
+            
+            <div class="content">
+                <p style="margin-top: 0; font-size: 14px; color: #475569; line-height: 1.6;">
+                    Hello Investment Team, here is the weekly mutual fund performance summary. 
+                    Macroeconomic data has been successfully fetched from AMFI India, transforming fund metrics inside the analytical database.
+                </p>
+                
+                <div class="section-title">Industry High-Level Indicators</div>
+                <div class="kpi-container">
+                    <div class="kpi-card">
+                        <div class="kpi-title">Monthly SIP Inflow</div>
+                        <div class="kpi-value">₹31,002 Cr</div>
+                        <div class="kpi-subtext">Record High (2025-12-01)</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-title">Active SIP Accounts</div>
+                        <div class="kpi-value">9.35 Cr</div>
+                        <div class="kpi-subtext">Registrations active</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-title">Total MF Folios</div>
+                        <div class="kpi-value">26.12 Cr</div>
+                        <div class="kpi-subtext">Indian Retail accounts</div>
+                    </div>
+                </div>
+                
+                <div class="section-title">Top 5 Performing Mutual Fund Schemes</div>
+                <div style="overflow-x: auto; width: 100%;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 20px;">
+                        <thead>
+                            <tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
+                                <th style="padding: 10px 12px; font-size: 11px; text-transform: uppercase; color: #475569; width: 40%;">Fund Name</th>
+                                <th style="padding: 10px 12px; font-size: 11px; text-transform: uppercase; color: #475569;">Category</th>
+                                <th style="padding: 10px 12px; font-size: 11px; text-transform: uppercase; color: #475569; text-align: right;">3Yr CAGR</th>
+                                <th style="padding: 10px 12px; font-size: 11px; text-transform: uppercase; color: #475569; text-align: right;">Sharpe</th>
+                                <th style="padding: 10px 12px; font-size: 11px; text-transform: uppercase; color: #475569; text-align: right;">Max DD</th>
+                                <th style="padding: 10px 12px; font-size: 11px; text-transform: uppercase; color: #475569; text-align: right;">Expense</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+        <tr style="background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #0f172a;">Axis Midcap Fund</td>
+            <td style="padding: 12px; font-size: 14px; color: #475569;">Equity</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: bold; color: #10b981; text-align: right;">35.10%</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #2563eb; text-align: right;">1.00</td>
+            <td style="padding: 12px; font-size: 14px; color: #dc2626; text-align: right;">-20.96%</td>
+            <td style="padding: 12px; font-size: 14px; color: #64748b; text-align: right;">1.38%</td>
+        </tr>
+        
+        <tr style="background-color: #ffffff; border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #0f172a;">Mirae Asset Large Cap Fund</td>
+            <td style="padding: 12px; font-size: 14px; color: #475569;">Equity</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: bold; color: #10b981; text-align: right;">33.99%</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #2563eb; text-align: right;">1.45</td>
+            <td style="padding: 12px; font-size: 14px; color: #dc2626; text-align: right;">-11.27%</td>
+            <td style="padding: 12px; font-size: 14px; color: #64748b; text-align: right;">1.46%</td>
+        </tr>
+        
+        <tr style="background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #0f172a;">HDFC Mid-Cap Opportunities Fund</td>
+            <td style="padding: 12px; font-size: 14px; color: #475569;">Equity</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: bold; color: #10b981; text-align: right;">32.43%</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #2563eb; text-align: right;">1.09</td>
+            <td style="padding: 12px; font-size: 14px; color: #dc2626; text-align: right;">-16.22%</td>
+            <td style="padding: 12px; font-size: 14px; color: #64748b; text-align: right;">1.38%</td>
+        </tr>
+        
+        <tr style="background-color: #ffffff; border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #0f172a;">ICICI Pru Bluechip Fund</td>
+            <td style="padding: 12px; font-size: 14px; color: #475569;">Equity</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: bold; color: #10b981; text-align: right;">32.48%</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #2563eb; text-align: right;">1.03</td>
+            <td style="padding: 12px; font-size: 14px; color: #dc2626; text-align: right;">-12.59%</td>
+            <td style="padding: 12px; font-size: 14px; color: #64748b; text-align: right;">0.80%</td>
+        </tr>
+        
+        <tr style="background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #0f172a;">ICICI Pru Midcap Fund</td>
+            <td style="padding: 12px; font-size: 14px; color: #475569;">Equity</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: bold; color: #10b981; text-align: right;">31.77%</td>
+            <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #2563eb; text-align: right;">1.18</td>
+            <td style="padding: 12px; font-size: 14px; color: #dc2626; text-align: right;">-18.19%</td>
+            <td style="padding: 12px; font-size: 14px; color: #64748b; text-align: right;">1.36%</td>
+        </tr>
+        
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section-title">Optimized Portfolios (Markowitz Frontier)</div>
+                <p style="margin-top: 0; font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 15px;">
+                    Allocations designed across the 5 representative mid, large, and flexicap mutual funds to achieve efficient returns:
+                </p>
+                
+            <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
+                <div style="font-size: 15px; font-weight: bold; color: #0F766E; margin-bottom: 8px;">Maximum Sharpe Ratio (MSR)</div>
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
+                    <tr>
+                        <td style="font-size: 12px; color: #64748b; padding-right: 15px;">Expected Return</td>
+                        <td style="font-size: 12px; color: #64748b; padding-right: 15px;">Portfolio Risk (Vol)</td>
+                        <td style="font-size: 12px; color: #64748b;">Sharpe Ratio</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 16px; font-weight: bold; color: #10b981;">26.27%</td>
+                        <td style="font-size: 16px; font-weight: bold; color: #2563eb;">6.94%</td>
+                        <td style="font-size: 16px; font-weight: bold; color: #0f172a;">2.85</td>
+                    </tr>
+                </table>
+                <div style="border-top: 1px dashed #e2e8f0; padding-top: 8px; margin-top: 8px;">
+                    <div style="font-size: 11px; color: #64748b; margin-bottom: 4px;">Asset Allocation:</div>
+                    <span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>Mirae Asset Large Cap Fund: 15.1%</span><span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>ICICI Pru Midcap Fund: 20.4%</span><span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>Kotak Flexicap Fund: 15.0%</span><span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>HDFC Mid-Cap Opportunities Fund: 21.4%</span><span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>ICICI Pru Bluechip Fund: 28.0%</span>
+                </div>
+            </div>
+            
+            <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
+                <div style="font-size: 15px; font-weight: bold; color: #0F766E; margin-bottom: 8px;">Minimum Volatility (MVP)</div>
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
+                    <tr>
+                        <td style="font-size: 12px; color: #64748b; padding-right: 15px;">Expected Return</td>
+                        <td style="font-size: 12px; color: #64748b; padding-right: 15px;">Portfolio Risk (Vol)</td>
+                        <td style="font-size: 12px; color: #64748b;">Sharpe Ratio</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 16px; font-weight: bold; color: #10b981;">26.00%</td>
+                        <td style="font-size: 16px; font-weight: bold; color: #2563eb;">6.89%</td>
+                        <td style="font-size: 16px; font-weight: bold; color: #0f172a;">2.83</td>
+                    </tr>
+                </table>
+                <div style="border-top: 1px dashed #e2e8f0; padding-top: 8px; margin-top: 8px;">
+                    <div style="font-size: 11px; color: #64748b; margin-bottom: 4px;">Asset Allocation:</div>
+                    <span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>Mirae Asset Large Cap Fund: 14.2%</span><span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>ICICI Pru Midcap Fund: 24.5%</span><span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>Kotak Flexicap Fund: 13.8%</span><span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>HDFC Mid-Cap Opportunities Fund: 19.7%</span><span style='display:inline-block; background-color:#e2e8f0; color:#0f172a; padding: 2px 6px; border-radius:4px; font-size:11px; margin-right:4px; margin-bottom:4px;'>ICICI Pru Bluechip Fund: 27.8%</span>
+                </div>
+            </div>
+            
+                
+                <div style="text-align: center; margin-top: 35px;">
+                    <a href="https://bluestock.streamlit.app/" target="_blank" class="btn-dash">Open Interactive Dashboard</a>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p style="margin: 0; font-weight: bold; color: #475569;">Bluestock Mutual Fund Analytics Platform</p>
+                <p style="margin: 5px 0 0 0; color: #94a3b8;">This is an automated weekly summary report. To update scheduling settings, edit schedule_etl.bat on host environment.</p>
+                <p style="margin: 15px 0 0 0; font-size: 11px; color: #94a3b8;">&copy; 2026 Bluestock Fintech Pvt. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    
