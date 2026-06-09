@@ -39,22 +39,49 @@ st.markdown("""
     .metric-card {
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
-        padding: 20px;
+        padding: 15px !important;
         border-radius: 12px;
         box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
         margin-bottom: 15px;
     }
     .metric-title {
-        font-size: 14px;
+        font-size: 11px !important;
         font-weight: 600;
         color: #64748b;
         text-transform: uppercase;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
     }
     .metric-value {
-        font-size: 28px;
+        font-size: 22px !important;
         font-weight: 700;
         color: #0f172a;
+    }
+    
+    /* Reduce default Streamlit padding for more dashboard space (creates a zoomed-out effect) */
+    .block-container {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
+        max-width: 96% !important;
+    }
+    
+    /* Global typography adjustments for a clean, compact look */
+    h1 {
+        font-size: 1.8rem !important;
+        font-weight: 800 !important;
+        margin-bottom: 0.8rem !important;
+    }
+    h2 {
+        font-size: 1.4rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 0.6rem !important;
+    }
+    h3 {
+        font-size: 1.15rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 0.4rem !important;
     }
     
     /* Headers styling */
@@ -366,7 +393,7 @@ elif selected_page == "Fund Performance":
             "Beta": "{:.2f}",
             "Max Drawdown (%)": "{:.2f}%",
             "Expense Ratio (%)": "{:.2f}%"
-        }), use_container_width=True, hide_index=True)
+        }), width="stretch", hide_index=True)
     else:
         st.info("No matching schemes found.")
         
@@ -944,7 +971,7 @@ elif selected_page == "Portfolio Optimization":
             "MVP Allocation (%)": [w * 100 for w in mvp_weights],
             "Custom Allocation (%)": [w * 100 for w in custom_weights] if custom_ready else ["-"] * 5
         }
-        st.dataframe(pd.DataFrame(alloc_data).set_index("Mutual Fund"), use_container_width=True)
+        st.dataframe(pd.DataFrame(alloc_data).set_index("Mutual Fund"), width="stretch")
         
         # Efficient Frontier Plotly Chart
         st.subheader("Efficient Frontier Scatter Plot")
@@ -1042,10 +1069,20 @@ elif selected_page == "Reports & Alerts":
         env_vars = {}
         st.error(f"Failed to load email modules: {e}")
         
-    # Also check Streamlit secrets
-    api_key = st.secrets.get("RESEND_API_KEY") or env_vars.get("RESEND_API_KEY")
-    sender = st.secrets.get("EMAIL_SENDER") or env_vars.get("EMAIL_SENDER") or "onboarding@resend.dev"
-    default_receiver = st.secrets.get("EMAIL_RECEIVER") or env_vars.get("EMAIL_RECEIVER") or ""
+    # Also check Streamlit secrets (safely handle missing secrets.toml locally)
+    api_key = None
+    sender = None
+    default_receiver = None
+    try:
+        api_key = st.secrets.get("RESEND_API_KEY")
+        sender = st.secrets.get("EMAIL_SENDER")
+        default_receiver = st.secrets.get("EMAIL_RECEIVER")
+    except Exception:
+        pass
+        
+    api_key = api_key or env_vars.get("RESEND_API_KEY")
+    sender = sender or env_vars.get("EMAIL_SENDER") or "onboarding@resend.dev"
+    default_receiver = default_receiver or env_vars.get("EMAIL_RECEIVER") or ""
     
     col_st1, col_st2 = st.columns(2)
     with col_st1:
