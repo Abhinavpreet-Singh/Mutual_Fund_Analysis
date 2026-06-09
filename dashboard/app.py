@@ -24,8 +24,13 @@ st.set_page_config(
 )
 
 # ─── Paths & DB Connection ───────────────────────────────────────────────────
+import sys
 BASE_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = BASE_DIR / "database" / "bluestock_mf.db"
+
+# Ensure root directory is in sys.path for Streamlit Cloud deployment
+if str(BASE_DIR) not in sys.path:
+    sys.path.append(str(BASE_DIR))
 
 # Custom CSS for custom styles
 st.markdown("""
