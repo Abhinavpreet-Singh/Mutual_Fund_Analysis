@@ -1,4 +1,4 @@
-# Day 2 Query Results
+# Day 2 Analytics Query Results (Re-run in Unified ETL)
 
 ## Q1: Top 5 funds by AUM
 

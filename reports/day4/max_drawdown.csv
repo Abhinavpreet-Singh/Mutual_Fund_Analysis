@@ -1,41 +1,41 @@
-amfi_code,scheme_name,max_drawdown_pct,peak_date,trough_date,recovery_date,drawdown_days,recovery_days
-100016,HDFC Top 100 Fund - Regular Plan - Growth,-24.734440880673304,2022-03-30,2022-09-15,2023-03-14,169,180.0
-100025,HDFC Short Term Debt Fund - Regular - Growth,-4.308263824636349,2023-05-23,2023-07-28,2024-01-30,66,186.0
-100033,HDFC Mid-Cap Opportunities Fund - Regular - Growth,-16.217208574644847,2022-03-11,2022-05-12,2022-07-27,62,76.0
-101206,ABSL Frontline Equity Fund - Regular - Growth,-11.291596329323072,2023-04-24,2023-07-05,2023-09-28,72,85.0
-101207,ABSL Small Cap Fund - Regular - Growth,-35.44691649336603,2024-11-21,2026-05-11,Not Recovered,536,
-101208,ABSL Liquid Fund - Regular - Growth,-0.16224980244717857,2023-09-05,2023-09-12,2023-09-22,7,10.0
-102885,UTI Nifty 50 Index Fund - Regular - Growth,-10.85986215250232,2022-02-03,2022-03-29,2022-05-23,54,55.0
-102886,UTI Mid Cap Fund - Regular - Growth,-28.00112356639287,2025-01-07,2026-04-27,Not Recovered,475,
-102887,UTI Flexi Cap Fund - Regular - Growth,-21.539827112383225,2022-01-03,2022-07-04,2023-03-16,182,255.0
-118632,Nippon India Large Cap Fund - Regular - Growth,-17.41407508665723,2024-01-02,2024-07-19,2025-05-21,199,306.0
-118633,Nippon India Large Cap Fund - Direct - Growth,-18.62974313859551,2023-10-30,2024-02-29,2024-07-26,122,148.0
-118634,Nippon India Small Cap Fund - Regular - Growth,-23.34488614483311,2025-04-09,2026-02-20,2026-04-15,317,54.0
-118635,Nippon India ETF Nifty 50 BeES,-11.650624505409091,2022-01-03,2022-06-09,2023-01-09,157,214.0
-118636,Nippon India Gilt Securities Fund - Regular - Growth,-8.316361763638703,2023-02-09,2024-02-09,2024-11-01,365,266.0
-119092,Axis Bluechip Fund - Regular - Growth,-14.401617909337261,2023-10-12,2025-02-07,2025-12-31,484,327.0
-119093,Axis Bluechip Fund - Direct - Growth,-21.751396370148225,2022-02-24,2023-05-22,2023-12-26,452,218.0
-119094,Axis Midcap Fund - Regular - Growth,-20.960883862039193,2022-04-14,2022-08-11,2023-01-17,119,159.0
-119095,Axis Small Cap Fund - Regular - Growth,-51.677753708526566,2025-05-22,2026-05-11,Not Recovered,354,
-119120,SBI Magnum Gilt Fund - Regular Plan - Growth,-4.328728923970093,2024-09-16,2025-04-01,2025-08-22,197,143.0
-119551,SBI Bluechip Fund - Regular Plan - Growth,-15.012385498645331,2023-08-24,2024-02-05,2025-01-08,165,338.0
-119552,SBI Bluechip Fund - Direct Plan - Growth,-11.803493502764296,2024-05-21,2024-09-02,2025-02-11,104,162.0
-119598,SBI Small Cap Fund - Regular Plan - Growth,-28.706005721764548,2024-08-28,2025-05-14,2025-09-29,259,138.0
-119599,SBI Small Cap Fund - Direct Plan - Growth,-52.57422117012851,2023-01-17,2025-10-28,Not Recovered,1015,
-120503,ICICI Pru Bluechip Fund - Regular - Growth,-13.897862823061635,2023-09-19,2023-11-09,2024-03-11,51,123.0
-120504,ICICI Pru Bluechip Fund - Direct - Growth,-12.588275606922517,2022-10-04,2023-05-30,2023-07-11,238,42.0
-120505,ICICI Pru Midcap Fund - Regular - Growth,-18.188513572116292,2024-10-24,2025-01-23,2025-03-07,91,43.0
-120506,ICICI Pru Value Discovery Fund - Regular - Growth,-19.82565826298267,2023-03-31,2023-08-14,2024-01-11,136,150.0
-120507,ICICI Pru Liquid Fund - Regular - Growth,-0.09773140045925555,2025-10-16,2025-10-20,2025-10-24,4,4.0
-120841,Kotak Bluechip Fund - Regular - Growth,-17.57361416468729,2024-01-09,2025-02-14,2025-12-04,402,293.0
-120842,Kotak Emerging Equity Fund - Regular - Growth,-24.003511326274886,2023-11-09,2024-10-17,2025-10-14,343,362.0
-120843,Kotak Flexicap Fund - Regular - Growth,-12.97396816518679,2022-03-07,2022-04-13,2022-09-22,37,162.0
-120844,Kotak Liquid Fund - Regular - Growth,-0.11629327956168556,2024-04-12,2024-04-30,2024-05-03,18,3.0
-125497,HDFC Top 100 Fund - Direct Plan - Growth,-15.200013055606398,2023-12-22,2025-01-01,2025-04-16,376,105.0
-125498,HDFC Mid-Cap Opportunities Fund - Direct - Growth,-21.11727956013212,2025-04-04,2025-09-12,2026-02-18,161,159.0
-148567,Mirae Asset Large Cap Fund - Regular - Growth,-11.265729075028275,2023-07-11,2023-10-20,2024-02-21,101,124.0
-148568,Mirae Asset Emerging Bluechip Fund - Regular - Growth,-15.27259422823477,2023-09-05,2024-01-24,2024-04-25,141,92.0
-148569,Mirae Asset Tax Saver Fund - Regular - Growth,-16.39674294693263,2023-08-10,2023-10-20,2024-04-10,71,173.0
-149322,DSP Top 100 Equity Fund - Regular - Growth,-14.844576917771747,2022-01-03,2022-02-04,2022-05-17,32,102.0
-149323,DSP Midcap Fund - Regular - Growth,-17.24810575345138,2022-06-06,2022-10-24,2022-12-20,140,57.0
-149324,DSP Small Cap Fund - Regular - Growth,-31.171900300634213,2024-05-03,2025-01-03,2025-06-13,245,161.0
+amfi_code,scheme_name,max_drawdown_pct
+100016,HDFC Top 100 Fund - Regular Plan - Growth,-24.734440880673304
+100025,HDFC Short Term Debt Fund - Regular - Growth,-4.308263824636349
+100033,HDFC Mid-Cap Opportunities Fund - Regular - Growth,-16.217208574644847
+101206,ABSL Frontline Equity Fund - Regular - Growth,-11.291596329323072
+101207,ABSL Small Cap Fund - Regular - Growth,-35.44691649336603
+101208,ABSL Liquid Fund - Regular - Growth,-0.16224980244717857
+102885,UTI Nifty 50 Index Fund - Regular - Growth,-10.85986215250232
+102886,UTI Mid Cap Fund - Regular - Growth,-28.00112356639287
+102887,UTI Flexi Cap Fund - Regular - Growth,-21.539827112383225
+118632,Nippon India Large Cap Fund - Regular - Growth,-17.41407508665723
+118633,Nippon India Large Cap Fund - Direct - Growth,-18.62974313859551
+118634,Nippon India Small Cap Fund - Regular - Growth,-23.34488614483311
+118635,Nippon India ETF Nifty 50 BeES,-11.650624505409091
+118636,Nippon India Gilt Securities Fund - Regular - Growth,-8.316361763638703
+119092,Axis Bluechip Fund - Regular - Growth,-14.401617909337261
+119093,Axis Bluechip Fund - Direct - Growth,-21.751396370148225
+119094,Axis Midcap Fund - Regular - Growth,-20.960883862039193
+119095,Axis Small Cap Fund - Regular - Growth,-51.677753708526566
+119120,SBI Magnum Gilt Fund - Regular Plan - Growth,-4.328728923970093
+119551,SBI Bluechip Fund - Regular Plan - Growth,-15.012385498645331
+119552,SBI Bluechip Fund - Direct Plan - Growth,-11.803493502764296
+119598,SBI Small Cap Fund - Regular Plan - Growth,-28.706005721764548
+119599,SBI Small Cap Fund - Direct Plan - Growth,-52.57422117012851
+120503,ICICI Pru Bluechip Fund - Regular - Growth,-13.897862823061635
+120504,ICICI Pru Bluechip Fund - Direct - Growth,-12.588275606922517
+120505,ICICI Pru Midcap Fund - Regular - Growth,-18.188513572116292
+120506,ICICI Pru Value Discovery Fund - Regular - Growth,-19.82565826298267
+120507,ICICI Pru Liquid Fund - Regular - Growth,-0.09773140045925555
+120841,Kotak Bluechip Fund - Regular - Growth,-17.57361416468729
+120842,Kotak Emerging Equity Fund - Regular - Growth,-24.003511326274886
+120843,Kotak Flexicap Fund - Regular - Growth,-12.97396816518679
+120844,Kotak Liquid Fund - Regular - Growth,-0.11629327956168556
+125497,HDFC Top 100 Fund - Direct Plan - Growth,-15.200013055606398
+125498,HDFC Mid-Cap Opportunities Fund - Direct - Growth,-21.11727956013212
+148567,Mirae Asset Large Cap Fund - Regular - Growth,-11.265729075028275
+148568,Mirae Asset Emerging Bluechip Fund - Regular - Growth,-15.27259422823477
+148569,Mirae Asset Tax Saver Fund - Regular - Growth,-16.39674294693263
+149322,DSP Top 100 Equity Fund - Regular - Growth,-14.844576917771747
+149323,DSP Midcap Fund - Regular - Growth,-17.24810575345138
+149324,DSP Small Cap Fund - Regular - Growth,-31.171900300634213

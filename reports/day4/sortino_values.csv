@@ -1,41 +1,41 @@
-amfi_code,scheme_name,downside_std_annualized_pct,sortino_ratio
-100016,HDFC Top 100 Fund - Regular Plan - Growth,8.351285215186829,-0.3510474601523089
-100025,HDFC Short Term Debt Fund - Regular - Growth,2.3514487863530102,-0.9418212366054204
-100033,HDFC Mid-Cap Opportunities Fund - Regular - Growth,11.322875898057063,1.8291339615146942
-101206,ABSL Frontline Equity Fund - Regular - Growth,8.315720784547668,1.799562874698452
-101207,ABSL Small Cap Fund - Regular - Growth,15.168286200797326,0.27664379626092334
-101208,ABSL Liquid Fund - Regular - Growth,0.24570154519476042,-1.681037866751281
-102885,UTI Nifty 50 Index Fund - Regular - Growth,7.305491141338037,1.4357420130649492
-102886,UTI Mid Cap Fund - Regular - Growth,10.750084224590351,-0.34722230254727265
-102887,UTI Flexi Cap Fund - Regular - Growth,8.966740219556739,1.0887552508030016
-118632,Nippon India Large Cap Fund - Regular - Growth,8.271674998912054,1.850132546855726
-118633,Nippon India Large Cap Fund - Direct - Growth,7.82269062003422,1.154475716923624
-118634,Nippon India Small Cap Fund - Regular - Growth,15.172834366505498,0.7460146308533572
-118635,Nippon India ETF Nifty 50 BeES,7.585343266171603,1.137976718780742
-118636,Nippon India Gilt Securities Fund - Regular - Growth,2.316711154903751,-0.6135251287271023
-119092,Axis Bluechip Fund - Regular - Growth,8.168850530540544,0.05257398559304803
-119093,Axis Bluechip Fund - Direct - Growth,8.197854923650977,0.22108683979276353
-119094,Axis Midcap Fund - Regular - Growth,11.370357218085251,1.7037974802463003
-119095,Axis Small Cap Fund - Regular - Growth,14.856565206962127,-0.12818559275851926
-119120,SBI Magnum Gilt Fund - Regular Plan - Growth,2.3856618826714024,-0.37676700817066683
-119551,SBI Bluechip Fund - Regular Plan - Growth,7.757590272699,2.140267129061793
-119552,SBI Bluechip Fund - Direct Plan - Growth,8.254632509603791,1.609776489628308
-119598,SBI Small Cap Fund - Regular Plan - Growth,14.185734802451814,1.6753165700125519
-119599,SBI Small Cap Fund - Direct Plan - Growth,15.116589359593165,-0.09438726129459606
-120503,ICICI Pru Bluechip Fund - Regular - Growth,8.280923066063352,1.3379431500669237
-120504,ICICI Pru Bluechip Fund - Direct - Growth,8.16751800813689,1.8052937940992548
-120505,ICICI Pru Midcap Fund - Regular - Growth,11.217995669684914,2.0293529404657464
-120506,ICICI Pru Value Discovery Fund - Regular - Growth,9.017978330852095,1.0958951614736467
-120507,ICICI Pru Liquid Fund - Regular - Growth,0.23271408138066385,1.0521238822609291
-120841,Kotak Bluechip Fund - Regular - Growth,7.715031298268794,0.8625738849916581
-120842,Kotak Emerging Equity Fund - Regular - Growth,10.90671085511969,0.12469346986475674
-120843,Kotak Flexicap Fund - Regular - Growth,8.780631873642598,2.3643200321667184
-120844,Kotak Liquid Fund - Regular - Growth,0.24267398555814892,-0.1877230477424223
-125497,HDFC Top 100 Fund - Direct Plan - Growth,8.55217612223687,1.3306512447571364
-125498,HDFC Mid-Cap Opportunities Fund - Direct - Growth,10.842807119958985,0.5088128197169232
-148567,Mirae Asset Large Cap Fund - Regular - Growth,8.616799887021052,2.3856443733688186
-148568,Mirae Asset Emerging Bluechip Fund - Regular - Growth,8.753269187849353,1.632740977873516
-148569,Mirae Asset Tax Saver Fund - Regular - Growth,10.166295570138448,2.146913926346055
-149322,DSP Top 100 Equity Fund - Regular - Growth,8.739635454822768,0.7621288703723166
-149323,DSP Midcap Fund - Regular - Growth,10.714523733176573,1.8751010639192083
-149324,DSP Small Cap Fund - Regular - Growth,14.565515733818332,1.6197931764914093
+amfi_code,scheme_name,sortino_ratio
+100016,HDFC Top 100 Fund - Regular Plan - Growth,-0.3510474601523089
+100025,HDFC Short Term Debt Fund - Regular - Growth,-0.9418212366054204
+100033,HDFC Mid-Cap Opportunities Fund - Regular - Growth,1.8291339615146942
+101206,ABSL Frontline Equity Fund - Regular - Growth,1.799562874698452
+101207,ABSL Small Cap Fund - Regular - Growth,0.27664379626092334
+101208,ABSL Liquid Fund - Regular - Growth,-1.681037866751281
+102885,UTI Nifty 50 Index Fund - Regular - Growth,1.4357420130649492
+102886,UTI Mid Cap Fund - Regular - Growth,-0.34722230254727265
+102887,UTI Flexi Cap Fund - Regular - Growth,1.0887552508030016
+118632,Nippon India Large Cap Fund - Regular - Growth,1.850132546855726
+118633,Nippon India Large Cap Fund - Direct - Growth,1.154475716923624
+118634,Nippon India Small Cap Fund - Regular - Growth,0.7460146308533572
+118635,Nippon India ETF Nifty 50 BeES,1.137976718780742
+118636,Nippon India Gilt Securities Fund - Regular - Growth,-0.6135251287271023
+119092,Axis Bluechip Fund - Regular - Growth,0.05257398559304803
+119093,Axis Bluechip Fund - Direct - Growth,0.22108683979276353
+119094,Axis Midcap Fund - Regular - Growth,1.7037974802463003
+119095,Axis Small Cap Fund - Regular - Growth,-0.12818559275851926
+119120,SBI Magnum Gilt Fund - Regular Plan - Growth,-0.37676700817066683
+119551,SBI Bluechip Fund - Regular Plan - Growth,2.140267129061793
+119552,SBI Bluechip Fund - Direct Plan - Growth,1.609776489628308
+119598,SBI Small Cap Fund - Regular Plan - Growth,1.6753165700125519
+119599,SBI Small Cap Fund - Direct Plan - Growth,-0.09438726129459606
+120503,ICICI Pru Bluechip Fund - Regular - Growth,1.3379431500669237
+120504,ICICI Pru Bluechip Fund - Direct - Growth,1.8052937940992548
+120505,ICICI Pru Midcap Fund - Regular - Growth,2.0293529404657464
+120506,ICICI Pru Value Discovery Fund - Regular - Growth,1.0958951614736467
+120507,ICICI Pru Liquid Fund - Regular - Growth,1.0521238822609291
+120841,Kotak Bluechip Fund - Regular - Growth,0.8625738849916581
+120842,Kotak Emerging Equity Fund - Regular - Growth,0.12469346986475674
+120843,Kotak Flexicap Fund - Regular - Growth,2.3643200321667184
+120844,Kotak Liquid Fund - Regular - Growth,-0.1877230477424223
+125497,HDFC Top 100 Fund - Direct Plan - Growth,1.3306512447571364
+125498,HDFC Mid-Cap Opportunities Fund - Direct - Growth,0.5088128197169232
+148567,Mirae Asset Large Cap Fund - Regular - Growth,2.3856443733688186
+148568,Mirae Asset Emerging Bluechip Fund - Regular - Growth,1.632740977873516
+148569,Mirae Asset Tax Saver Fund - Regular - Growth,2.146913926346055
+149322,DSP Top 100 Equity Fund - Regular - Growth,0.7621288703723166
+149323,DSP Midcap Fund - Regular - Growth,1.8751010639192083
+149324,DSP Small Cap Fund - Regular - Growth,1.6197931764914093
