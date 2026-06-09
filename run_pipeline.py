@@ -1,21 +1,9 @@
-"""
-run_pipeline.py
-===============
-Master pipeline controller for the Bluestock Mutual Fund Analytics Platform.
-Executes the full end-to-end flow:
-1. Live NAV Data Fetch (optional via --fetch-live)
-2. Ingestion, Cleaning, and SQLite Database Creation (etl_pipeline.py)
-3. Exploratory Data Analysis Chart Generation (day3_eda.py)
-4. Performance & Risk Analytics Computations (compute_metrics.py)
-"""
-
 import argparse
 import os
 import sys
 import subprocess
 import time
 
-# Resolve directory paths
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 SCRIPTS_DIR = os.path.join(ROOT_DIR, "scripts")
 
@@ -23,16 +11,7 @@ DIVIDER = "=" * 75
 
 
 def run_script(script_name: str, args_list: list[str] | None = None) -> bool:
-    """
-    Execute a python script in the scripts/ folder as a subprocess.
-    
-    Args:
-        script_name: Filename of the target python script.
-        args_list: List of optional CLI arguments to pass to the script.
-        
-    Returns:
-        True if the script executed successfully (exit code 0), False otherwise.
-    """
+
     script_path = os.path.join(SCRIPTS_DIR, script_name)
     if not os.path.exists(script_path):
         print(f"[ERROR] Script not found: {script_path}")
@@ -43,7 +22,6 @@ def run_script(script_name: str, args_list: list[str] | None = None) -> bool:
     start_time = time.time()
     
     try:
-        # Run subprocess and stream output directly to stdout/stderr
         result = subprocess.run(cmd, check=True)
         elapsed = time.time() - start_time
         print(f"[SUCCESS] {script_name} completed in {elapsed:.2f} seconds.")
